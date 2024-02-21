@@ -1,0 +1,68 @@
+teste;exp;String;resposta;true;
+
+Serviço 1
+FORMULARIO PEDIDO
+
+----Validação 1: O período é definido por duas datas em que a data fim é igual ou superior à data inicio. done
+(fazer em java) Validação 2: O tipo de ausência assume apenas 3 valores possíveis: Férias, Justificada, Não Justificada. meh
+----Validação 3: Caso o tipo de ausência seja "Justificada" é obrigatório preencher o campo "justificação".
+
+PeriodoAusencia;;Periodo;05/02/2021.09/02/2021;true;TipoAusencia;;String;Justificada;true;Justificacao;;String;;false;
+
+FORMULARIO APROVACAO
+
+---Validação: A fundamentação é obrigatória. done
+
+Decisao sobre periodo de ausencia;;String;podes rei;true;
+
+FORMULARIO REALIZACAO
+
+---Validação 1: Com exceção do comentário, todos os dados são obrigatórios. done
+---Validação 2: Os dias totais (e.g. férias totais) devem corresponder à soma dos dias já gozados/ocorridos e dos dias a gozar/ocorrer no período solicitado. done
+
+Dias de ferias ja gozados no ano;;Soma;5;true;Dias de ferias gozados do periodo solicitado;;Soma;2;true;Dias de ferias totais;;Igual;7;true;Dias de falta justificadas ja ocorridas no ano;;Soma;5;true;Dias de faltas justificadas do periodo solicitado;;Soma;5;true;Dias de faltas justificadas totais;;Igual;10;true;Dias de falta nao justificadas ja ocorridas no ano;;Soma;6;true;Dias de faltas nao justificadas do periodo solicitado;;Soma;6;true;Dias de faltas nao justificadas totais;;Igual;12;true;Comentario;;String;;false;
+
+
+
+SERVICO 2
+
+FORMULARIO PEDIDO
+
+---Validação 1: Código cliente obedece a uma expressão regular (3 consoantes + 3 dígitos).
+---Validação 2: Código cliente, nome, tipo de desconto, recorrência e fundamentação são obrigatórios. done
+---Validação 3: Apenas um dos campos entre percentagem de desconto e valor de desconto tem obrigatoriamente que estar preenchido (valor superior a zero). O outro campo deve ficar a zero. done
+---Validação 4: A recorrência apenas assume 2 valores possíveis: Única ou Até Data Limite. Em caso de ser única é obrigatório identificar a fatura em causa. Caso contrário é obrigatório indicar a data limite de aplicação do desconto.
+
+Codigo Interno Cliente;[bcdfghjklmnpqrstvxyz]{3}[0-9]{3};String;ctv666;true;Nome Interno Cliente;;String;Miguel Sousa;true;Tipo de Desconto;;String;Um tipo sei la;true;Recorrencia;;String;Unica;true;Percentagem de Desconto;;InteiroUnico;5;false;Valor de Desconto;;InteiroUnico;;false;Identificacao da Fatura;;String;identificacaoFatura;false;Data Limite;;Data;05/02/2021;false;Fundamentacao do pedido;;String;tem que ser;true;
+
+FORMULARIO APROVACAO
+
+--Validação 1: A fundamentação é obrigatória.
+--Validação 2: Apenas um dos campos entre percentagem de desconto e valor de desconto tem obrigatoriamente que estar preenchido (valor superior a zero). O outro campo deve ficar a zero.
+
+Decisao;;String;Sim;true;Fundamentacao;;String;eu deixo te;true;Percentagem de Desconto;;InteiroUnico;5;false;Valor de Desconto;;InteiroUnico;;false;Data Limite;;Data;05/02/2021;false;
+
+
+SERVICO 3
+
+FORMULARIO PEDIDO
+
+--Validação: Garantir que a informação introduzida é válida (e.g. Código postal com 4+3 digitos).
+
+Codigo Postal;[0-9]{4}-[0-9]{3};String;4470-666;true;
+
+FORMULARIO REALIZACAO
+
+---Validação: O texto de observações é obrigatório.
+
+Observacoes;;String;observado;true;
+
+SERVICO 4
+
+FORMULARIO PEDIDO
+
+(fazer em java) Validação 1: Tipo de cliente aceita apenas 3 valores: Nacional, Europeu, Resto do Mundo
+----Validação 2: Todos os dados são obrigatórios
+----Validação 3: A quantidade só pode ter parte decimal significativa (diferente de zero) caso o código do produto comece por "20" ou "21".
+
+Codigo Produto;;Inteiro;218;true;Quantidade pretendida;;Inteiro;55.100000;true;Tipo de Cliente;;String;Europeu;true;

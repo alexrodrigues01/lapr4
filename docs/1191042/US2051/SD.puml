@@ -1,0 +1,113 @@
+@startuml
+autonumber
+
+actor "Responsável de Recursos Humanos" as ACT
+participant ":EspecificarColabadorUI" as UI
+participant ":EspecificarColabadorController" as CONTROLLER
+participant "<<persistence>>\nPersistenceContext" as PERS
+participant "<<factory>>\nfactory:RepositoryFactory" as FAC
+participant "<<builder>>\nUserBuilder" as B
+participant "<<domain>>\nuser:User" AS C
+database "<<repository>>\n:ColaboradorRepository" as DB2
+database "<<repository>>\n:UserRepository" as DB
+participant "ctx:TransactionContext" as ctx
+
+
+activate ACT
+ACT -> UI : Especificar novo Colaborador
+activate UI
+            UI -> CONTROLLER: create
+            activate CONTROLLER
+
+                 CONTROLLER -> PERS: repositories()
+                                activate PERS
+                                PERS ->FAC: newTransactionalContext()
+                                PERS->CONTROLLER: ctx
+                                deactivate PERS
+
+
+                                CONTROLLER -> PERS: repositories()
+                                activate PERS
+                                PERS ->FAC: create()
+                                activate FAC
+                                FAC->DB : create(ctx)
+                                activate DB
+                                deactivate FAC
+                                deactivate DB
+                                PERS-->CONTROLLER: userRepository
+                                deactivate PERS
+
+                CONTROLLER -> PERS: repositories()
+                activate PERS
+                PERS ->FAC: create( )
+                activate FAC
+                FAC->DB2 : create(ctx)
+                activate DB2
+                deactivate FAC
+                deactivate DB2
+                PERS-->CONTROLLER: colaboradorRepositorio
+                deactivate PERS
+
+            deactivate CONTROLLER
+
+            UI->CONTROLLER:  colaboradores=getColaboradores()
+            activate CONTROLLER
+            CONTROLLER->DB2:getColaboradores()
+            deactivate CONTROLLER
+
+            UI-->ACT: Apresenta a lista dos Colaboradores
+            deactivate UI
+
+            ACT->UI:Escolhe o Colaborador responsável
+            activate UI
+            UI->CONTROLLER: responsavel=getColaboradorById(id)
+            activate CONTROLLER
+             CONTROLLER->DB2: responsavel=getColaboradorById(id)
+            deactivate CONTROLLER
+            UI-->ACT: Apresenta as Funcoes Disponiveis e solicita as informações do novo Colaborador
+            deactivate UI
+
+            ACT->UI:   Introduz as informações sobre o novo Colaborador
+            activate UI
+              UI -> CONTROLLER : colaborador = novoColaborador(nomeCompleto,localResidencia,\nfuncao,telemovel,email,dataNascimento,nomemcomum)
+               activate CONTROLLER
+                    CONTROLLER -> "<<domain>>\ncolaborador:Colaborador" : create(nomeCompleto,localResidencia,funcao,\ntelemovel,email,dataNascimento,nomemcomum)
+
+                deactivate CONTROLLER
+                 UI -> CONTROLLER : funcoes = getFuncoes()
+                activate CONTROLLER
+                CONTROLLER -> "Colaborador" : getFuncoes()
+                deactivate CONTROLLER
+
+             UI --> ACT: Apresenta a informação e pede confirmação
+
+             deactivate UI
+
+            ACT -> UI:  Confirma
+
+            activate UI
+           UI->CONTROLLER:registarColaborador()
+           activate CONTROLLER
+             CONTROLLER -> "PasswordGenerator":password=gerarPassword()
+             CONTROLLER->B : create
+                      CONTROLLER->B : setUsername(username)
+                      note right : e set aos outros atributos
+                      CONTROLLER->B: createUser()
+                      activate B
+                      B->C:create(username,password,nomeCompleto,email,roles)
+                      C-->B:user
+                      B-->CONTROLLER: user
+                      deactivate B
+
+         CONTROLLER->ctx:beginTransaction()
+         CONTROLLER->DB2:save(colaborador)
+         CONTROLLER->DB:save(user)
+         CONTROLLER->ctx:commit()
+           UI-->ACT: Fim da especificação do Colaborador
+           deactivate CONTROLLER
+           deactivate UI
+deactivate UI
+
+deactivate ACT
+
+@enduml

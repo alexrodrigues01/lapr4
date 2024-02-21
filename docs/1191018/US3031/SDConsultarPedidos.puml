@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor USER
+participant "<<presentation>>\nConsultarPedidosUI" as UI
+participant "<<application>>\nConsultarPedidosController" as CONTROLLER
+participant "AuthzRegistry" as AUTHZ
+participant "authz:\n AuthorizationService" AS AUTHZSERVICE
+participant "userSession\n:UserSession" as USERSESSION
+participant "systemUser:\n SystemUser" AS SYSTEMUSER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database "<<repository>>\nPedidoRepository" as REPO1
+participant "<<domain>>\nPedido" as PED
+participant "PedidoDTO" as DTO
+collections "<<java interface>>\n listaPedidosUser"
+collections "<<java interface>>\n listaPedidosEmCurso"
+collections "<<java interface>>\n listaPedidosHistorico"
+
+activate USER
+    USER->UI: inicia o processo de consulta dos pedidos
+    activate UI
+        UI->CONTROLLER: getPedidosUser()
+        activate CONTROLLER
+            CONTROLLER->AUTHZ : authz=authorizationService()
+            activate AUTHZ
+            deactivate AUTHZ
+            CONTROLLER->AUTHZSERVICE :userSession=session()
+            activate AUTHZSERVICE
+            deactivate AUTHZSERVICE
+            CONTROLLER->USERSESSION: systemUser=authenticatedUser()
+            activate USERSESSION
+            deactivate USERSESSION
+            CONTROLLER-> SYSTEMUSER: email= email()
+            activate SYSTEMUSER
+            deactivate SYSTEMUSER
+              CONTROLLER->PERS: repositories()
+                        activate PERS
+                            PERS->FACT: create()
+                            activate FACT
+                                FACT->REPO1: create()
+                                activate REPO1
+                                deactivate REPO1
+                            deactivate FACT
+                            PERS-->CONTROLLER: PedidoRepository
+                        deactivate PERS
+                        CONTROLLER->REPO1: listaPedidosUser=getPedidosUser(email)
+                        activate REPO1
+                        deactivate REPO1
+
+                        CONTROLLER->CONTROLLER: listaPedidosEmCurso=pedidosEmCurso(listaPedidosUser)
+                        CONTROLLER->CONTROLLER: listaPedidosHistorico=pedidosHistorico(listaPedidosUser)
+                        loop foreach Pedido em curso
+                        CONTROLLER->PED: toDTO()
+                        activate PED
+                            PED->DTO:create
+                            PED-->CONTROLLER: PedidoDTO
+                        deactivate PED
+                        end loop
+
+                        loop foreach pedido em historico
+                        CONTROLLER->PED: toDTO()
+                        activate PED
+                            PED->DTO:create
+                            PED-->CONTROLLER: PedidoDTO
+                        deactivate PED
+                        end loop
+
+
+        deactivate CONTROLLER
+
+        CONTROLLER-->UI : Iterable<PedidoDTO>, Iterable<PedidoDTO>
+        UI--> USER: apresenta o historico de pedidos e \n os pedidos em curso do utilizador
+
+    deactivate UI
+    deactivate USER
+
+    @enduml
+@enduml

@@ -1,0 +1,73 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Colaborador as USER
+participant "<<presentation>>\nExecutarTarefasAtribuidasUI" as UI
+participant "<<application>>\nExecutarTarefasAtribuidasController" as CONTROLLER
+participant "AuthzRegistry" as AUTHZ
+participant "authz:\n AuthorizationService" AS AUTHZSERVICE
+participant "userSession\n:UserSession" as USERSESSION
+participant "systemUser:\n SystemUser" AS SYSTEMUSER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database "<<repository>>\nPedidoRepository" as REPO1
+participant "<<domain>>\nPedido" as P
+participant "<<domain>>\nServico" as S
+participant "<<domain>>\nFluxoResolucao" as FT
+participant "<<domain>>\nTarefaAprovRes" as TA
+participant "<<domain>>\nTarefaExecRes" as TR
+collections "<<java interface>>\n listaTarefasAprovRes"
+collections "<<java interface>>\n listaTarefasExecRes"
+
+activate USER
+    USER->UI: inicia o processo
+        activate UI
+        deactivate UI
+            ref over UI
+                SDConsultarTarefasAtribuidas
+            end ref
+
+            UI--> USER: apresenta as listas de tarefas atribuidas e \n permite a reivindicacao de uma
+            activate UI
+            deactivate UI
+
+            opt
+            USER->UI: Permite a execução solicitando para isso a inserção do id
+            activate UI
+                UI->CONTROLLER: executarTarefa(id)
+                activate CONTROLLER
+                    alt tarefa aprovacao
+                        CONTROLLER->TA: definirFormulario(formulario)
+                        activate TA
+                        deactivate TA
+                        alt estado == aprovada
+                            CONTROLLER->TA: setEstado(aprovada)
+                            activate TA
+                            deactivate TA
+                        else estado == rejeitada
+                            CONTROLLER->TA: setEstado(rejeitada)
+                            activate TA
+                            deactivate TA
+                        end alt
+                    else tarefa execucao
+                        CONTROLLER->TR: definirFormulario(formulario)
+                        activate TR
+                        deactivate TR
+                        CONTROLLER->TR: setEstado(concluida)
+                        activate TR
+                        deactivate TR
+                    end alt
+                deactivate CONTROLLER
+
+            deactivate UI
+            end opt
+
+
+
+
+
+deactivate USER
+
+@enduml

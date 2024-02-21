@@ -1,0 +1,166 @@
+@startuml
+autonumber
+
+actor "Responsavel Recursos Humanos" as ADMIN
+participant "<<presentation>>\n:EquipaUI" as UI
+participant "<<application>>\n:EquipaController" as CONTROLLER
+participant "<<persistence>>\nPersistenceContext" as PERS
+participant "<<factory>>\nfactory:RepositoryFactory" as FAC
+database "<<repository>>\n:EquipaRepository" as DB
+database "<<repository>>\n:TipoEquipaRepository" as DB2
+database "<<repository>>\nColaboradorRepository" as DB3
+participant "<<domain>>\n:Equipa" AS C
+participant "Colaborador\n:colaborador"
+collections "<<java interface>> lista"
+
+ADMIN -> UI : Inicia a criação de uma nova Equipa
+activate ADMIN
+activate UI
+UI -> CONTROLLER: create()
+activate CONTROLLER
+CONTROLLER -> PERS: repositories()
+activate PERS
+PERS ->FAC: factory=create()
+
+activate FAC
+FAC->DB : create()
+activate DB
+deactivate FAC
+deactivate DB
+PERS-->CONTROLLER: EquipaRepository
+deactivate PERS
+
+
+deactivate CONTROLLER
+
+UI --> ADMIN : Solicita as informações da Equipa
+deactivate UI
+
+ADMIN -> UI : Introduz as informações da Equipa
+activate UI
+    UI -> CONTROLLER : equipa = novaEquipa(identificadorUnico,acronimoUnico,designacao)
+    activate CONTROLLER
+
+        CONTROLLER -> C : create(identificadorUnico,acronimoUnico,designacao)
+        activate C
+        deactivate C
+    deactivate CONTROLLER
+
+    UI->CONTROLLER: listaTiposEquipa=getTiposEquipa()
+    activate CONTROLLER
+        CONTROLLER->PERS: repositories()
+        activate PERS
+            PERS->FAC: create()
+            activate FAC
+                FAC->DB2: create()
+                activate DB2
+                deactivate DB2
+            deactivate FAC
+            PERS-->CONTROLLER: TipoEquipaRepository
+        deactivate PERS
+        CONTROLLER->DB2: listaTiposEquipa=getTiposEquipa()
+        activate DB2
+        deactivate DB2
+    deactivate CONTROLLER
+
+UI --> ADMIN : apresenta a lista e solicita que selecione um tipo de equipa
+deactivate UI
+
+ADMIN->UI: seleciona o tipo de equipa da nova equipa
+     activate UI
+        UI->CONTROLLER: adicionarTipoEquipa(codigoUnico)
+        activate CONTROLLER
+            CONTROLLER->CONTROLLER: tipoEquipa=getTipoEquipaByCodigoUnico(codigoUnico)
+            activate CONTROLLER
+            deactivate CONTROLLER
+           CONTROLLER->C: adicionarTipoEquipa(tipoEquipa)
+           activate C
+           deactivate C
+        deactivate CONTROLLER
+loop
+
+        UI->CONTROLLER: listaColaboradores=getColaboradores()
+                activate CONTROLLER
+                    CONTROLLER->PERS: repositories()
+                    activate PERS
+                        PERS->FAC: create()
+                        activate FAC
+                            FAC->DB3: create()
+                            activate DB3
+                            deactivate DB3
+                        deactivate FAC
+                        PERS-->CONTROLLER: ColaboradorRepository
+                    deactivate PERS
+                    CONTROLLER->DB3: listaColaboradores= getColaboradores()
+                    activate DB3
+                    deactivate DB3
+                deactivate CONTROLLER
+                UI-->ADMIN : apresenta a lista de colaboradores e solicita que selecione um
+             deactivate UI
+
+             ADMIN-> UI: seleciona o colaborador
+             activate UI
+                UI->CONTROLLER: adicionarColaborador(email)
+                activate CONTROLLER
+                    CONTROLLER->CONTROLLER: colaborador=getColaboradorByEmail(email)
+                    activate CONTROLLER
+                    deactivate CONTROLLER
+                    CONTROLLER->C: adicionarColaborador(colaborador)
+                    activate C
+                    deactivate C
+                deactivate CONTROLLER
+end loop
+
+loop
+
+        UI->CONTROLLER: listaColaboradoresEquipa=getColaboradoresEquipa()
+                activate CONTROLLER
+                    CONTROLLER->PERS: repositories()
+                    activate PERS
+                        PERS->FAC: create()
+                        activate FAC
+                            FAC->DB: create()
+                            activate DB
+                            deactivate DB
+                        deactivate FAC
+                        PERS-->CONTROLLER: EquipaRepository
+                    deactivate PERS
+                    CONTROLLER->C: listaColaboradoresEquipa= getColaboradoresEquipa()
+                    activate C
+                    deactivate C
+                deactivate CONTROLLER
+                UI-->ADMIN : apresenta a lista de colaboradores da equipa e solicita que selecione um
+             deactivate UI
+
+             ADMIN-> UI: seleciona o colaborador responsável
+             activate UI
+                UI->CONTROLLER: adicionarColaboradorResponsavel(email)
+                activate CONTROLLER
+                    CONTROLLER->CONTROLLER: colaboradorResponsavel=getColaboradorByEmail(email)
+                    activate CONTROLLER
+                    deactivate CONTROLLER
+                    CONTROLLER->C: adicionarColaboradorResponsavel(colaboradorResponsavel)
+                    activate C
+                    deactivate C
+                deactivate CONTROLLER
+end loop
+UI --> ADMIN : Apresenta as informações e pede para confirmar
+deactivate UI
+
+ADMIN -> UI : Confirma
+activate UI
+    UI -> CONTROLLER : registarEquipa()
+    activate CONTROLLER
+
+        CONTROLLER-> DB: save(equipa)
+        activate DB
+        deactivate DB
+
+   deactivate CONTROLLER
+
+
+UI --> ADMIN : Adiciona as informações à base de dados e informa do seu sucesso
+deactivate UI
+deactivate ADMIN
+
+@enduml

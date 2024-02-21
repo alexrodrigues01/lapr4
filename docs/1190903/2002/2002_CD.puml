@@ -1,0 +1,78 @@
+@startuml
+
+class EspecificarServicoUI {
+}
+
+class EspecificarServicoController {
+    -Servico servico
+    +novoServico()
+    +definirDado(index, dado)
+    +definirCodigoENome(codigoUnico, nome)
+    +adicionarAtributo(nome, label, descricao, expressaoRegular)
+    +publicarServico()
+    +registarServico()
+}
+
+class PersistenceContext{
+    +repositories()
+}
+
+class RepositoryFactory{
+    +newTransactionContext()
+    +create()
+}
+
+class Servico {
+    -String nome
+    -String codigo
+    -String descSimples
+    -List<Keyword> keywords
+    -Formulario formulario
+    +definirNome(nome)
+    +definirCodigo(codigo)
+    +definirDescSimples(descSimples)
+    +definirKeyword(keyword)
+    +definirCodigoENomeFormulario(codigoUnico, nome)
+    +adicionarAtributoFormulario(nome, label, descricao, expressaoRegular)
+    +verificarPublicacao()
+}
+
+class FormularioSolicitacao {
+    -String nome
+    -String codigoUnico
+    -List<Atributo> atributos
+    +definirCodigoUnico(codigoUnico)
+    +definirNome(nome)
+    +adicionarAtributo(atributo)
+}
+
+class Atributo {
+    -String nome
+    -String label
+    -String descricao
+    -regex expressaoRegular
+}
+
+class Keyword {
+    -String keyword
+}
+
+class TransactionContext {
+    +beginTransaction()
+    +commit()
+}
+
+EspecificarServicoUI ..> EspecificarServicoController
+
+EspecificarServicoController ..> PersistenceContext
+EspecificarServicoController ..> Servico
+
+Servico ..> FormularioSolicitacao
+Servico ..> Keyword
+
+FormularioSolicitacao ..> Atributo
+
+PersistenceContext ..> RepositoryFactory
+PersistenceContext ..> TransactionContext
+
+@enduml

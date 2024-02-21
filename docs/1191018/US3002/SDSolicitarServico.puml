@@ -1,0 +1,113 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor USER
+participant "<<presentation>>\nSolicitarServicoUI" as UI
+participant "<<application>>\nSolicitarServicoController" as CONTROLLER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database "<<repository>>\nPedidoRepository" as PEDIDOREPO
+participant "AuthzRegistry" as AUTHZ
+participant "authz:\n AuthorizationService" AS AUTHZSERVICE
+participant "userSession\n:UserSession" as USERSESSION
+participant "systemUser:\n SystemUser" AS SYSTEMUSER
+database "<<repository>>\nCatalogoRepository" as REPO1
+participant "<<domain>>\nCatalogo" as CAT
+participant "<<domain>>\nservico:Servico" as SERV
+participant "<<domain>>\ncriticidade:NivelCriticidade" as NVCRIT
+participant "<<domain>>\nPedido" as PED
+
+activate USER
+
+USER->UI: Inicia o processo de solicitação do servico selecionado
+activate UI
+    UI-> CONTROLLER: create()
+    activate CONTROLLER
+        CONTROLLER-> PERS : repositories()
+        activate PERS
+            PERS->FACT: create()
+            activate FACT
+                FACT->PEDIDOREPO: create
+                activate PEDIDOREPO
+                deactivate PEDIDOREPO
+            deactivate FACT
+            PERS-->CONTROLLER: PedidoRepository
+        deactivate PERS
+    deactivate CONTROLLER
+  ref over UI, CAT
+   getCatalogosColaborador
+   end ref
+deactivate UI
+USER->UI: introduz código único do servico
+        activate UI
+            UI->CONTROLLER : servico=getServicobyCodUnico(codigoUnico)
+            activate CONTROLLER
+                CONTROLLER->CONTROLLER: servico=getServicobyCodUnico(codigoUnico)
+            deactivate CONTROLLER
+            UI--> USER:  apresenta o servico selecionado e solicita \nconfirmação da solicitação do Serviço
+        deactivate UI
+        USER->UI: confirma
+        activate UI
+            UI-->USER: Solicita dados do pedido(urgencia do pedido, data\n limite de resolução)
+       deactivate UI
+
+            USER->UI:introduz os dados solicitados
+             activate UI
+                UI->CONTROLLER: pedido= novoPedido(urgenciaPedido, dataLimite)
+            activate CONTROLLER
+                CONTROLLER->CONTROLLER: id=generateIdPedido()
+                CONTROLLER->SERV: criticidade=criticidade()
+                activate SERV
+                deactivate SERV
+                CONTROLLER-> PED **: pedido= create(id,email,servico,criticidade,urgenciaPedido,dataLimite)
+            deactivate CONTROLLER
+            loop [ . para os ficheiros que o utilizador pretender inserir ]
+                UI-->USER: solicita que introduza o path de um ficheiro
+            deactivate UI
+            USER->UI: introduz o path do ficheiro
+            activate UI
+                UI-> CONTROLLER : adicionarFicheiro(pathFile)
+                activate CONTROLLER
+                    CONTROLLER-> PED: adicionarFicheiro(pathFile)
+                    activate PED
+                    deactivate PED
+                deactivate CONTROLLER
+            end loop
+            UI->CONTROLLER: formularioSolicitacao=getFormularioSolicitacao()
+            activate CONTROLLER
+                CONTROLLER->SERV: formularioSolicitacao= formularioSolicitacao()
+                activate SERV
+                deactivate SERV
+            deactivate CONTROLLER
+            UI-->USER: solicita que preencha os dados do formulário de solicitação
+            deactivate UI
+            USER->UI: introduz os dados solicitados
+            activate UI
+                UI->CONTROLLER: guardarDadosFormularioSolicitacao(dados)
+                activate CONTROLLER
+                    CONTROLLER->PED: guardarDadosFormularioSolicitacao(dados)
+                    activate PED
+                    deactivate PED
+                    CONTROLLER->PED: guardarDataHoraSolicitacao(dataHoraSolicitacao)
+                    activate PED
+                    deactivate PED
+                    CONTROLLER->PED: definirEstado(SUBMETIDO)
+                    activate PED
+                    deactivate PED
+                deactivate CONTROLLER
+            UI-->USER : apresenta os dados do pedido e solicita confirmação
+            deactivate UI
+            USER->UI: confirma
+            activate UI
+                UI->CONTROLLER: registarPedido()
+                activate CONTROLLER
+                    CONTROLLER->PEDIDOREPO: save(pedido)
+                    activate PEDIDOREPO
+                    deactivate PEDIDOREPO
+                deactivate CONTROLLER
+                UI-->USER: informa do sucesso da operação
+            deactivate UI
+        deactivate USER
+@enduml

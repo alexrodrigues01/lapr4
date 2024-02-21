@@ -1,0 +1,10 @@
+Estudo Algoritmos:
+
+O FCFS é um algortimo simples e fácil de implementar e de alguma forma eficiente. No entanto se existir um número muito grande
+de tarefas prontas para serem executadas vai acontecer um efeito de comboio, podendo resultar em grandes tempos de espera para
+as tarefas que chegarem em último.
+
+Por outro lado, o algoritmo baseado na carga das threads , é mais complexo e mais dificil de implementar, mas em situacoes em 
+que existam várias tarefas em espera, não vai prejudicar as tarefas que chegaram em último.
+
+

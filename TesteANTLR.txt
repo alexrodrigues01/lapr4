@@ -1,0 +1,38 @@
+exemplo se
+"-SE -FICHEIRO \"D:\\Users\\User\\teste\\src\\main\\java\\colaborador.xml\" -CONSULTAR P_2 \"salary\" -MAIOR 100\n" +
+                        "-REMETENTE \"g20.lapr3.2020.2021.testes@gmail.com\" \n" +
+                        "-PASSWORD \" Lapr3g20 \" \n"+
+                        "-ASSUNTO \"es mt bvoniuto\" \n" +
+                        "-CORPO \"olaaa tf bem\" \n" +
+                        "-DESTINATARIO P_2"
+
+
+ATUALIZAR EXEMPLO
+
+-FICHEIRO \"D:\Users\User\teste\src\main\java\colaborador.xml\"
+-ATUALIZAR P_2 \"email\" -INFO P_3
+
+"-REMETENTE \"g20.lapr3.2020.2021.testes@gmail.com\" \n" +
+                "-PASSWORD \"Lapr3g20\" \n"+
+                "-ASSUNTO \"Assuntooo\"" +
+                "-CORPO  \" Boa tarde, ~~(-FICHEIRO D:\\Users\\User\\teste\\src\\main\\java\\colaborador.xml -CONSULTAR P_2 \"nome\") o seu salario e de ~~(-FICHEIRO D:\\Users\\User\\teste\\src\\main\\java\\colaborador.xml -CONSULTAR P_2 \"salary\"). \" \n  \n" +
+                "-DESTINATARIO P_2"
+
+-SE P_2 -MESMO \"NACIONAL\"
+	-SUM 10 10
+
+ATUALIZAR PRECO SOMAR
+
+-FICHEIRO \"D:\Users\User\teste\src\main\java\colaborador.xml\"
+-ATUALIZAR "NOME" "Rui Pedro" "salary" 1
+
+
+
+-FICHEIRO \"D:\Users\User\teste\src\main\java\colaborador.xml\"
+-CONSULTAR P_2 "salary" 
+
+"-REMETENTE \"g20.lapr3.2020.2021.testes@gmail.com\" \n" +
+                "-PASSWORD \"Lapr3g20\" \n"+
+                "-ASSUNTO \"Assuntooo\"" +
+                "-CORPO  \" Boa tarde, ~~(-FICHEIRO \"D:\\Users\\User\\teste\\src\\main\\java\\colaborador.xml\" -CONSULTAR P_2 \"nome\") o seu salario e de ~~(-FICHEIRO D:\\Users\\User\\teste\\src\\main\\java\\colaborador.xml -CONSULTAR P_2 \"salary\"). \" \n  \n" +
+                "-DESTINATARIO P_2"

@@ -1,0 +1,249 @@
+@startuml
+autonumber
+
+actor GSH as gsh
+participant "<<presentation>>\nCompletarServicoUI" as ui
+participant "<<application>>\nCompletarServicoController" as controller
+
+participant "<<persistence>>\nPersistenceContext" as persistence
+participant "<<factory>>\nfactory:RepositoryFactory" as factory
+
+participant "ctx\n:TransactionContext" as ctx
+
+database "<<repository>>\n:ServicoRepository" as dbservico
+
+participant "<<Java Interface>>\nlistaServico:List<Servico>" as lista
+
+participant "<<domain>>\nservico:Servico" as servico
+participant "<<domain>>\nformulario:Formulario" as formulario
+participant "<<domain>>\natributo:Atributo" as atributo
+
+participant "<<domain>>\nfluxo:FluxoTarefa" as fluxo
+participant "<<domain>>\naprov:TarefaAprovacao" as aprov
+participant "<<domain>>\nres:TarefaResolucao" as res
+
+activate gsh
+gsh -> ui : inicia a continuação da especificação de um serviço
+activate ui
+
+ui -> controller : create()
+activate controller
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: newTransactionContext()
+activate factory
+deactivate factory
+persistence --> controller: ctx
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbservico : create()
+activate dbservico
+deactivate dbservico
+deactivate factory
+persistence --> controller: ServicoRepository
+deactivate persistence
+deactivate controller
+ui -> controller : getServicosPorPublicar()
+note right: filtração dos servicos por publicar
+activate controller
+controller -> dbservico : listaServicos = findAll()
+activate dbservico
+deactivate dbservico
+deactivate controller
+ui -> gsh : apresenta os serviços ainda não publicados
+deactivate ui
+
+gsh -> ui : introduz codigo do servico a alterar
+activate ui
+ui -> controller : getServicoByCodigo(codigo)
+activate controller
+controller -> lista : get()
+activate lista
+deactivate lista
+deactivate controller
+ui -> gsh : apresenta o servico e solicita os dados a alterar(codigo, titulo, \ndescSimples, descCompleta)
+deactivate ui
+
+gsh -> ui : introduz os dados
+note right : dados não introduzidos pelo utilizador não serão alterados
+activate ui
+ui -> controller : alterarDadosPrincipaisServico(codigo, titulo, descSimples, descCompleta)
+activate controller
+controller -> servico : definirCodigo(codigo)
+activate servico
+deactivate servico
+controller -> servico : definirTitulo(titulo)
+activate servico
+deactivate servico
+controller -> servico : definirDescSimples(descSimples)
+activate servico
+deactivate servico
+controller -> servico : definirDescCompleta(descCompleta)
+activate servico
+deactivate servico
+deactivate controller
+ui -> gsh : apresenta as keywords do servico e pergunta se quer remover alguma
+deactivate ui
+
+loop
+gsh -> ui : seleciona a keyword a remover
+activate ui
+ui -> controller : removerKeyword(keyword)
+activate controller
+controller -> servico : removerKeyword(keyword)
+activate servico
+deactivate servico
+deactivate controller
+end loop
+ui -> gsh : solicita novas keywords
+deactivate ui
+loop
+gsh -> ui : introduz keyword
+activate ui
+ui -> controller : adicionarKeyword(keyword)
+activate controller
+controller -> servico : adicionarKeyword(keyword)
+activate servico
+deactivate servico
+deactivate controller
+end loop
+
+ui -> gsh : apresenta os dados do formulario e solicita dados a alterar(codigo, nome)
+deactivate ui
+
+gsh -> ui : introduz os dados a alterar
+activate ui
+ui -> controller : alterarFormulario(codigo, nome)
+activate controller
+controller -> servico : formulario = formulario()
+activate servico
+deactivate servico
+controller -> formulario : definirNome(nome)
+activate formulario
+deactivate formulario
+controller -> formulario : definirCodigo(codigo)
+activate formulario
+deactivate formulario
+deactivate controller
+ui -> gsh : apresenta os atributos do formulario e pergunta se quer remover
+deactivate ui
+
+opt
+gsh -> ui : seleciona atributo para remover
+activate ui
+ui -> controller : removerAtributo(atributo)
+activate controller
+controller -> formulario : removerAtributo(atributo)
+activate formulario
+deactivate formulario
+deactivate controller
+
+end opt
+ui -> gsh : pergunta se quer adicionar novos atributos
+deactivate ui
+loop
+gsh -> ui : introduz dados do atributo(nome, label, descricao, exPressaoRegular, tipoDados)
+activate ui
+ui -> controller : adicionarAtributo(nome, label, descricao, exPressaoRegular, tipoDados)
+activate controller
+controller -> formulario : adicionarAtributo(atributo)
+activate formulario
+deactivate formulario
+deactivate controller
+end loop
+
+ui -> gsh : apresenta equipas do fluxo e do sistema e pergunta se quer adicionar algumas às tarefas
+deactivate ui
+
+gsh -> ui : seleciona equipas a adicionar às tarefas
+activate ui
+ui -> controller : adicionarEquipa(index)
+activate controller
+controller -> servico : fluxo = fluxoTarefa()
+activate servico
+deactivate servico
+controller -> fluxo : aprov = tarefaAprovacao()
+activate fluxo
+deactivate fluxo
+controller -> fluxo : res = tarefaResolucao()
+activate fluxo
+deactivate fluxo
+controller -> aprov : addEquipa(equipa)
+activate aprov
+deactivate aprov
+controller -> res : addEquipa(equipa)
+activate res
+deactivate res
+deactivate controller
+
+ui -> gsh : pergunta se quer remover tarefa de aprovacao
+deactivate ui
+
+gsh -> ui : confirma
+activate ui
+ui -> controller : removerTarefaAprovacao()
+activate controller
+controller -> fluxo : definirTarefaAprovacao(null)
+activate fluxo
+deactivate fluxo
+deactivate controller
+
+ui -> gsh : pergunta se quer alterar a tarefa de resolução
+
+deactivate ui
+
+gsh -> ui : confirma
+activate ui
+note right: alguns parametros poderão estar a null
+ui -> gsh : solicita dados da tarefa de resolução(manual, nomeFormulario, codigoFormulario, deadline, script)
+deactivate ui
+
+gsh -> ui : introduz os dados
+activate ui
+ui -> controller : definirTarefaResolução((manual, nomeFormulario, codigoFormulario, deadline, script)
+activate controller
+controller -> fluxo : definirTarefaResolução(res)
+activate fluxo
+deactivate fluxo
+deactivate controller
+
+ui -> gsh : pergunta se quer publicar o servico
+deactivate ui
+
+gsh -> ui : confirma
+activate ui
+ui -> controller : verificarPublicacao()
+activate controller
+controller -> servico : verificarPublicacao()
+activate servico
+deactivate servico
+deactivate controller
+ui -> gsh : pergunta se quer guardar as alterações
+deactivate ui
+
+gsh -> ui : confirma
+activate ui
+ui -> controller : registarServico()
+activate controller
+controller -> ctx : beginTransaction()
+activate ctx
+deactivate ctx
+
+controller -> dbservico : save(servico)
+activate dbservico
+deactivate dbservico
+
+controller -> ctx : commit()
+activate ctx
+deactivate ctx
+
+deactivate controller
+ui -> gsh : informa do sucesso da operação
+deactivate ui
+deactivate gsh
+
+
+@enduml

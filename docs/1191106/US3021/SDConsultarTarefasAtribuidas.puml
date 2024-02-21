@@ -1,0 +1,131 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Colaborador as USER
+participant "<<presentation>>\nConsultarTarefasAtribuidasUI" as UI
+participant "<<application>>\nConsultarTarefasAtribuidasController" as CONTROLLER
+participant "AuthzRegistry" as AUTHZ
+participant "authz:\n AuthorizationService" AS AUTHZSERVICE
+participant "userSession\n:UserSession" as USERSESSION
+participant "systemUser:\n SystemUser" AS SYSTEMUSER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database "<<repository>>\nPedidoRepository" as REPO1
+participant "<<domain>>\nPedido" as P
+participant "<<domain>>\nFluxoResolucao" as FT
+participant "<<domain>>\nTarefaAprovRes" as TA
+participant "<<domain>>\nTarefaExecRes" as TR
+participant "<<domain>>\nTarefaAprovResDTO" as DTO
+participant "<<domain>>\nTarefaExecResDTO" as DTO2
+collections "<<java interface>>\n listaTarefasAprovResDTO"
+collections "<<java interface>>\n listaTarefasExecResDTO"
+
+activate USER
+    USER->UI: inicia o processo
+        activate UI
+            UI->CONTROLLER: listaTarefasAprovResDTO=getTarefasAtribuidasAprovacao()
+            activate CONTROLLER
+                CONTROLLER->AUTHZ : authz=authorizationService()
+                activate AUTHZ
+                deactivate AUTHZ
+                CONTROLLER->AUTHZSERVICE :userSession=session()
+                activate AUTHZSERVICE
+                deactivate AUTHZSERVICE
+                CONTROLLER->USERSESSION: systemUser=authenticatedUser()
+                activate USERSESSION
+                deactivate USERSESSION
+                CONTROLLER-> SYSTEMUSER: email= email()
+                activate SYSTEMUSER
+                deactivate SYSTEMUSER
+                  CONTROLLER->PERS: repositories()
+                            activate PERS
+                                PERS->FACT: create()
+                                activate FACT
+                                    FACT->REPO1: create()
+                                    activate REPO1
+                                    deactivate REPO1
+                                deactivate FACT
+                                PERS-->CONTROLLER: PedidoRepository
+                            deactivate PERS
+                            CONTROLLER->REPO1: listaPedidos=getPedidos()
+                            activate REPO1
+                            deactivate REPO1
+                            loop
+                            CONTROLLER->P: fluxoResolucao()
+                            activate P
+                            alt estado==Atribuida
+                            P->FT: tarefaAprovRes()
+                            activate FT
+                            deactivate FT
+                            end alt
+                            deactivate P
+                            CONTROLLER->TA: toDTO()
+                            activate TA
+                                TA->DTO:create
+                                activate DTO
+                                deactivate DTO
+                                TA-->CONTROLLER: TarefaAprovResDTO
+                            deactivate TA
+                            end loop
+
+                deactivate CONTROLLER
+                UI->CONTROLLER: listaTarefasExecResDTO=getTarefasAtribuidasExecucao()
+                            activate CONTROLLER
+                                CONTROLLER->AUTHZ : authz=authorizationService()
+                                activate AUTHZ
+                                deactivate AUTHZ
+                                CONTROLLER->AUTHZSERVICE :userSession=session()
+                                activate AUTHZSERVICE
+                                deactivate AUTHZSERVICE
+                                CONTROLLER->USERSESSION: systemUser=authenticatedUser()
+                                activate USERSESSION
+                                deactivate USERSESSION
+                                CONTROLLER-> SYSTEMUSER: email= email()
+                                activate SYSTEMUSER
+                                deactivate SYSTEMUSER
+                                  CONTROLLER->PERS: repositories()
+                                            activate PERS
+                                                PERS->FACT: create()
+                                                activate FACT
+                                                    FACT->REPO1: create()
+                                                    activate REPO1
+                                                    deactivate REPO1
+                                                deactivate FACT
+                                                    PERS-->CONTROLLER: PedidoRepository
+                                                    deactivate PERS
+                                                    CONTROLLER->REPO1: listaPedidos=getPedidos()
+                                                    activate REPO1
+                                                    deactivate REPO1
+                                                    loop
+                                                    CONTROLLER->P: fluxoResolucao()
+                                                    activate P
+                                                    alt estado==Atribuida
+                                                    P->FT: tarefaExecRes()
+                                                    activate FT
+                                                    deactivate FT
+                                                    end alt
+                                                    deactivate P
+                                                    CONTROLLER->TR: toDTO()
+                                                    activate TR
+                                                        TR->DTO2:create
+                                                        activate DTO2
+                                                        deactivate DTO2
+                                                        TR-->CONTROLLER: TarefaExecResDTO
+                                                    deactivate TR
+                                                    end loop
+
+            deactivate CONTROLLER
+            UI--> USER: apresenta as listas de tarefas atribuídas
+            deactivate UI
+
+
+
+
+
+
+
+deactivate USER
+
+@enduml

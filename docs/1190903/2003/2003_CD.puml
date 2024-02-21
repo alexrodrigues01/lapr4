@@ -1,0 +1,154 @@
+@startuml
+
+class RetomarServicoUI {
+}
+
+class RetomarServicoController {
+    -List<Servico> listaServicos;
+    -List<Equipa> listaEquipa;
+    -List<Atributo> atributosTarefa;
+    -Servico servicoEscolhido;
+    -ServicoRepository servicoRepository;
+    -FormularioRepository formularioRepository;
+    -TransactionalContext ctx;
+    +List<Servico> getServicosPorPublicar()
+    +Servico servicoByCodigo(String codigo)
+    +boolean validarCodigo(String codigo)
+    +boolean validarNome(String nome)
+    +void alterarDadosPrincipaisServico(String codigo, String nome, String descSimples, String descCompleta)
+    +List<Keyword> keywords()
+    +void removerKeyword(String keyword)
+    +void adicionarKeyword(String keyword)
+    +Formulario formulario()
+    +boolean validarCodigoFormulario(String codigo)
+    +boolean validarNomeFormulario(String nome)
+    +void definirNomeFormulario(String nome)
+    +void definirCodigoFormulario(String codigo)
+    +List<Atributo> atributosFormulario()
+    +boolean removerAtributo(String nomeAtributo)
+    +void adicionarAtributo(String nome, String label, String descricao, String exPressaoRegular, String tipoDados)
+    +Set<Equipa> equipasFluxo()
+    +List<Equipa> equipas()
+    +boolean adicionarEquipa(int index)
+    +void removerTarefaAprovacao()
+    +void criarTarefaAprovacao()
+    +void adicionarAtributoFormularioTarefaResolucao(String nomeAtributo, String label, String descricao, String expressaoRegular, String tipoDados)
+    +void criarTarefaResolucao(boolean manual, String nomeF, String codigoF, Date deadline, Script script)
+    +boolean publicarServico()
+    +void registarServico()
+}
+
+class PersistenceContext{
+    +repositories()
+}
+
+class RepositoryFactory{
+    +newTransactionContext()
+    +create()
+}
+
+class Servico {
+    -NomeServico nome
+    -CodigoServico codigo
+    -String descSimples
+    -String descCompleta
+    -List<Keyword> keywords
+    -Formulario formulario
+    -boolean publicar
+    -FluxoTarefa fluxoTarefa
+    +definirNome(String nome)
+    +definirCodigo(String codigo)
+    +definirDescSimples(String descSimples)
+    +definirDescCompleta(String descSimples)
+    +boolean definirKeyword(Keyword keyword)
+    +List<Keyword> keywords()
+    +Formulario formulario()
+    +boolean verificarPublicacao()
+    +Atributo adicionarAtributoFormulario(Atributo atributo)
+    +FluxoTarefa fluxoTarefa()
+}
+
+class Formulario {
+    -NomeFormulario nome
+    -CodigoFormulario codigoUnico
+    -List<Atributo> atributos
+    +boolean definirCodigoUnico(codigoUnico)
+    +boolean definirNome(nome)
+    +boolean adicionarAtributo(atributo)
+    +boolean removerAtributoByNome(String nomeAtributo)
+    +boolean verificarPublicacao()
+}
+
+class Atributo {
+    -NomeAtributo nome
+    -Label label
+    -DescricaoAtributo descricao
+    -ExpressaoRegular expressaoRegular
+}
+
+class Keyword {
+    -String keyword
+}
+
+class FluxoTarefa {
+    -TarefaResolucao tarefaResolucao
+    -TarefaAprovacao tarefaAprovacao
+    +TarefaResolucao tarefaResolucao()
+    +TarefaAprovacao tarefaAprovacao()
+    +void definirTarefaResolucao(TarefaResolucao tarefaResolucao)
+    +void definirTarefaAprovacao(TarefaAprovacao tarefaAprovacao)
+}
+
+class TarefaResolucao {
+    -boolean manual;
+    -Set<Equipa> equipaList;
+    -Formulario formulario;
+    -Script script;
+    -Date dataLimite;
+    -enum EstadoTarefaResolucao
+    +Set<Equipa> equipas()
+}
+
+class TarefaAprovacao {
+    -Date dataLimite;
+    -List<Equipa> equipas;
+    -EstadoTarefaAprovacao estado
+}
+
+class TransactionContext {
+    +beginTransaction()
+    +commit()
+}
+
+database servicoRepository {
+}
+
+database equipaRepository {
+}
+
+database formularioRepository {
+}
+
+RetomarServicoUI ..> RetomarServicoController
+
+RetomarServicoController ..> Servico
+RetomarServicoController ..> PersistenceContext
+
+Servico ..> Formulario
+Servico ..> Keyword
+Servico ..> FluxoTarefa
+
+FluxoTarefa ..> TarefaResolucao
+FluxoTarefa ..> TarefaAprovacao
+
+TarefaResolucao ..> Formulario
+
+Formulario ..> Atributo
+
+PersistenceContext ..> RepositoryFactory
+PersistenceContext ..> TransactionContext
+PersistenceContext ..> servicoRepository
+PersistenceContext ..> equipaRepository
+PersistenceContext ..> formularioRepository
+
+@enduml

@@ -1,0 +1,79 @@
+GUIÃO SERVIÇO 4
+
+PASSO 1
+
+Reinvidicar tarefas de aprovação
+
+PASSO 2
+
+Efetuar as tarefas de aprovação
+
+PASSO 3
+
+=== Especificar Serviço ===
+
+Nome: Requerer cotacao para venda por grosso
+Codigo: SRV_4_COTACAO
+Descricao simples: Pretende-se requerir a cotacao para venda por grosso de um produto
+Descricao completa: Pretende-se requerir a cotacao para venda por grosso de um produto
+
+=== Formulario ===
+Nome: Formulario Pedido de Venda por Grosso
+Codigo: FORM_PEDIDO_COTACAO
+
+== Atributo 1 ==
+Nome: Codigo do Produto
+Label: Codigo
+Descricao: Codigo do Produto
+Expressao Regular:
+Obrigatoriedade: true
+Tipo dados: Inteiro
+
+== Atributo 2 ==
+Nome: Quantidade Pretendida
+Label: Quantidade
+Descricao: Quantidade Pretendida de Produto
+Expressao Regular:
+Obrigatoriedade: true
+Tipo dados: Inteiro
+
+== Atributo 3 ==
+Nome: Tipo de Cliente
+Label: Cliente
+Descricao: Tipo de Cliente
+Expressao Regular:
+Obrigatoriedade: true
+Tipo dados: Multipla
+Opcoes: Europeu, Nacional, Mundo
+
+== Atributo 4 ==
+Nome: Email
+Label: Email
+Descricao: Email a enviar
+Expressao Regular:
+Obrigatoriedade: true
+Tipo dados: String
+
+=== Sem tarefa aprovação ===
+
+=== Tarefa execucao automatica ===
+SCRIPT:
+
+-ATRIBUIR -"total" -MUL P_2 -FICHEIRO "produto.xml" -CONSULTAR P_1 "preco" -ATRIBUIR -"desconto" 0 -SE -"total" -MAIOR 5 -ATRIBUIR -"desconto" 1 -ATRIBUIR -"desconto" -DIV -"desconto" 100 -ATRIBUIR -"desconto" -MUL -"desconto" -"total" -ATRIBUIR -"totalDesconto" -SUB -"total" -"desconto" -SE P_3 -MESMO "NACIONAL" -REMETENTE "lapr4g3@gmail.com" -PASSWORD "pessego2001 " -ASSUNTO "Pedido atualizacao" -CORPO "Boa tarde, #Valor total antes do desconto: ~~(-"total").#Valor desconto: ~~(-"desconto").#Valor total com desconto: ~~(-"totalDesconto").##Cumprimentos, Lapr4" -DESTINATARIO P_4 -SE P_3 -MESMO "EUROPEU" -REMETENTE "lapr4g3@gmail.com" -PASSWORD "pessego2001 " -ASSUNTO "Order Update" -CORPO "Good afternoon, #Total amount before discount: ~~(-"total").#Discount amount: ~~(-"desconto").#Total amount with discount: ~~(-"totalDesconto").##Best Regards , Lapr4" -DESTINATARIO P_4
+
+
+PASSO 4
+
+Cria catálogo com o serviço e a equipa de vendas
+
+PASSO 5
+
+=== Pedido do Serviço 	===
+Codigo: 1001
+Quantidade: 5
+Tipo: Europeu
+Email: 1191018@isep.ipp.pt
+
+PASSO 6
+
+executor de tarefinhas

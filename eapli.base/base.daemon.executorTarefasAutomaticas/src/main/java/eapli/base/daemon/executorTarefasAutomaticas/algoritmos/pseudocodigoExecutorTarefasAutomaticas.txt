@@ -1,0 +1,150 @@
+EXECUTOR TAREFAS AUTOMÁTICAS
+
+======================================================================================================
+
+FCFS
+
+    //boolean true no construtor do ExecutorTarefasAutomaticas indica que vai ser usado o fcfs
+    executorTarefasAutomaticasNot <- cria ExecutorTarefasAutomaticas(true)
+
+    //cria um numero establecido de instancias de tarefas automaticas
+    numeroThreads <- numero de threads a criar
+
+    FOR (0 UNTIL numeroThreads)
+        cria e inicia nova instancia de executor de tarefas automaticas
+    END FOR
+
+    WHILE (true)
+
+	IF(lista de tarefas a executar está vazia)
+        	SYNCHRONIZED (this)
+            		wait this
+        	END SYNCHRONIZED
+	END IF
+
+        //dorme 100 milisegundos
+        sleep(100)
+
+        IF (lista de tarefas a executar não está vazia AND a proxima tarefa a executar está null)
+            define a primeira tarefa da lista de tarefas a executar como a proxima tarefa a executar
+            remove a primeira tarefa da lista de tarefas a executar
+
+            notifica todas as threads
+        END IF
+
+    END WHILE
+
+END FCFS
+
+======================================================================================================
+
+ALGORITMO DE CARGA
+
+    cria lista de instâncias do executor de tarefas automaticas
+
+    //adiciona primeira instancia (instancia de controlo) com boolean false no construtor, indicando que nao se vai usar o algoritmo fcfs
+    cria primeira instancia do executor de tarefas (false)
+    adiciona à lista de instancias
+
+    //cria um numero establecido de instancias de tarefas automaticas
+    numeroThreads <- numero de threads a criar
+
+    FOR (0 UNTIL numeroThreads)
+        cria nova instancia de executor de tarefas automaticas
+        inicia instancia de executor de tarefas automaticas
+
+        adiciona à lista de threads
+    END FOR
+
+    WHILE (true)
+
+	IF(lista de tarefas a executar está vazia)
+        	SYNCHRONIZED (this)
+            		wait this
+        	END SYNCHRONIZED
+	END IF
+
+        //dorme 100 milisegundos
+        sleep(100)
+
+        IF	(lista de tarefas a executar não está vazia AND a proxima tarefa a executar está null)
+
+            ordena a lista de instância por ordem decrescente com base no parametro 'carga' das mesmas
+
+            FOR	(percorre todas as instancias (exec) da listThreads)
+
+                IF	(estado da thread == waiting)
+
+                    define a primeira tarefa da lista de tarefas a executar como a tarefa a ser executada
+                    remove a primeira tarefa da lista de tarefas a executar
+
+                    SYNCHRONIZED (exec)
+
+                                        notify o exec
+
+                                END SYNCHRONIZED
+
+                            BREAK FOR
+
+                END IF
+
+            END FOR
+
+        END IF
+    END WHILE
+
+END ALGORITMO DE CARGA
+
+======================================================================================================
+
+EXECUTOR TAREFAS AUTOMATICAS extends THREAD
+
+    boolean fcfs
+    int carga = 0
+    object lock
+
+    CONSTRUTOR	(boolean fcfs)	//define qual o algoritmo que usa
+        this.fcfs <- fcfs
+    END CONSTRUTOR
+
+    RUN
+
+        WHILE	(true)
+
+            IF	(fcfs == true)
+                SYNCHRONIZED (lock)
+                    wait lock
+                            END SYNCHRONIZED
+            ELSE
+                SYNCHRONIZED (this)
+                    wait thread
+                            END SYNCHRONIZED
+            END IF
+
+            inicia a variavel do pedido
+
+            IF	(fcfs == true)
+                SYNCHRONIZED (lock)
+                    pedido <- proxima tarefa
+                    define proxima tarefa como null
+                    carga++
+                            END SYNCHRONIZED
+            ELSE
+                SYNCHRONIZED (this)
+                    pedido <- proxima tarefa
+                    define proxima tarefa como null
+                    carga++
+                            END SYNCHRONIZED
+            END IF
+
+            IF	(pedio IS NOT null)
+                sleep(1000)
+                executa o script da tarefa de execucao do pedido
+                envia packet a informar que terminou
+            END IF
+
+        END WHILE
+
+    END RUN
+
+END EXECUTOR TAREFAS AUTOMATICAS

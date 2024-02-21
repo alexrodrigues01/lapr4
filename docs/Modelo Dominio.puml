@@ -1,0 +1,164 @@
+@startuml
+
+'pessoas'
+
+class Colaborador{
+    -int numMecanografico
+    -String nomeComum
+    -Date dataNascimento
+    -String email
+    -String telemovel
+}
+
+'grupinhos'
+
+class TipoEquipa {
+    -int codigoUnico
+    -String descricao
+    -String cor
+}
+
+class Equipa {
+    -int codigoUnico
+    -String acronimoUnico
+    -String designacao
+}
+
+'ações'
+
+class Pedido {
+    -String identificadorUnico
+    -Date dataSolicitacao
+    -String criticidade
+    -Date dataLimite
+    -String comentarioConclusivo
+    -int classificacao
+}
+
+class Funcao {
+    -String descricao
+}
+
+class Catalogo {
+    -int identificadorUnico
+    -String titulo
+    -String descricaoSimples
+    -String descricaoCompleta
+    -BufferedImage icone
+}
+
+class Formulario{
+    -int identificadorUnico
+    -String nome
+}
+
+class Servico {
+    -int codigoUnico
+    -String titulo
+    -String descricaoSimples
+    -String descricaoCompleta
+    -BufferedImage icone
+    -List<String> keywords
+}
+
+class SLA {
+}
+
+class Tarefa {
+    -String prioridade
+    -String criticidade
+    -Date dataLimite
+    -boolean automatico
+}
+
+class FluxoAtividade {
+}
+
+'util'
+
+class LocalResidencia {
+}
+
+class CriterioAcesso {
+}
+
+class Atributo{
+    -String nomeVariavel
+    -String label
+    -String descricaoAjuda
+    -<E> tipoDadosBase
+}
+
+class NivelCriticidade{
+    -int valorNumerico
+    -String cor
+}
+
+class Etiqueta {
+    -String prioridade
+}
+
+class Objetivo {
+    -int tempoMedioAprovacao
+    -int tempoMaximoAprovacao
+    -int tempoMedioAceitacao
+    -int tempoMaximoAceitacao
+}
+
+class UrgenciaPedido {
+    -String urgencia
+}
+
+class Ficheiro {
+}
+
+class EstadoPedido{
+    -String estado
+}
+
+class EstadoTarefa{
+    -String estado
+}
+
+'ligações'
+
+Equipa "1" --> "1" TipoEquipa : tem
+Equipa "1" --> "*" Colaborador : tem
+
+Colaborador "1" --> "1" LocalResidencia : reside em
+Colaborador "1" --> "*" Colaborador : é responsavel
+Colaborador "1" --> "1" Funcao : desempenha
+Colaborador "1" --> "1" Catalogo : é responsavel
+
+Catalogo "1" --> "*" CriterioAcesso : possui
+Catalogo "1" --> "*" Objetivo : possui
+Catalogo "1" --> "*" Servico : possui
+Catalogo "1" --> "1" SLA : possui
+
+Formulario "1" --> "*" Atributo : possui
+
+NivelCriticidade "1" --> "1" Etiqueta : possui
+NivelCriticidade "1" --> "*" Objetivo : possui
+
+Pedido "1" --> "1" Servico : caracterizado por
+Pedido "1" --> "1" UrgenciaPedido : tem
+Pedido "1" --> "1" Formulario : possui dados
+Pedido "1" --> "*" Ficheiro : tem
+Pedido "1" --> "1" SLA : tem dados
+Pedido "1" --> "1" EstadoPedido : tem
+Pedido "1" --> "1" FluxoAtividade : tem
+
+Servico "1" --> "*" Objetivo : possui
+Servico "1" --> "*" NivelCriticidade : possui
+
+SLA "1" --> "*" Objetivo : possui
+SLA "1" --> "*" NivelCriticidade : possui
+
+Tarefa "1" --> "0..1" Formulario : tem
+Tarefa "1" --> "1" EstadoTarefa : tem
+
+FluxoAtividade "1" --> "*" Tarefa : tem
+
+CriterioAcesso "1" --> "*" Equipa : tem acesso
+
+@enduml

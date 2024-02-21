@@ -1,0 +1,26 @@
+@startuml use-case-realization.svg
+
+participant Portal <<client>>
+
+ExecutorTarefasAutomaticasDaemon -> ExecutorTarefasAutomaticasServer : new
+loop true
+ExecutorTarefasAutomaticasDaemon -> ExecutorTarefasAutomaticasServer: start
+activate ExecutorTarefasAutomaticasServer
+ExecutorTarefasAutomaticasServer -> ExecutorTarefasAutomaticasServer: accept
+
+Portal --> ExecutorTarefasAutomaticasServer
+
+participant HandleClient <<thread>>
+activate HandleClient
+ExecutorTarefasAutomaticasServer -\ HandleClient: start
+deactivate ExecutorTarefasAutomaticasServer
+end
+
+HandleClient -> MessageParser:parse
+HandleClient -> HandleClient: execute
+HandleClient -> MessageBuilder:build
+
+HandleClient --> Portal
+deactivate HandleClient
+
+@enduml

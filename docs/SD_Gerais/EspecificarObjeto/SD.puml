@@ -1,0 +1,65 @@
+@startuml
+    autonumber
+
+actor "Ator" as ADMIN
+participant "<<presentation>>\n:ObjetoUI" as UI
+participant "<<application>>\n:ObjetoController" as CONTROLLER
+participant "<<persistence>>\nPersistenceContext" as PERS
+participant "<<factory>>\nfactory:RepositoryFactory" as FAC
+database "<<repository>>\n:ObjetoRepository" as DB
+participant "<<domain>>\n:Objeto" AS C
+
+ADMIN -> UI : Especificar novo Objeto
+activate ADMIN
+
+activate UI
+UI -> CONTROLLER: create
+activate CONTROLLER
+CONTROLLER -> PERS: repositories()
+activate PERS
+PERS ->FAC: factory=create()
+
+activate FAC
+FAC->DB : create()
+activate DB
+deactivate FAC
+deactivate DB
+PERS-->CONTROLLER: ObjetoRepository
+deactivate PERS
+
+
+deactivate CONTROLLER
+
+UI --> ADMIN : Solicita as informações sobre o Objeto
+deactivate UI
+
+ADMIN -> UI : Introduz as informações sobre o Objeto
+activate UI
+    UI -> CONTROLLER : objeto = novoObjeto(dados)
+    activate CONTROLLER
+
+        CONTROLLER -> C : create(dados)
+
+
+    deactivate CONTROLLER
+
+UI --> ADMIN : Apresenta as informações e pede para confirmar
+deactivate UI
+
+ADMIN -> UI : Confirma
+activate UI
+    UI -> CONTROLLER : registarObjeto()
+    activate CONTROLLER
+
+        CONTROLLER-> DB: save(objeto)
+        activate DB
+        deactivate DB
+
+   deactivate CONTROLLER
+
+
+UI --> ADMIN : Adiciona as informações à base de dados e informa do seu sucesso
+deactivate UI
+deactivate ADMIN
+
+@enduml

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+  <persistence-unit name="eapli.base">
+    <!--
+  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+  -->
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <class>eapli.framework.infrastructure.authz.domain.model.SystemUser</class>
+    <class>eapli.framework.infrastructure.authz.domain.model.Role</class>
+    <class>eapli.framework.infrastructure.authz.domain.model.RoleSet</class>
+    <class>eapli.framework.infrastructure.authz.domain.model.RoleAssignment</class>
+    <class>eapli.base.clientusermanagement.domain.ClientUser</class>
+    <class>eapli.base.clientusermanagement.domain.SignupRequest</class>
+    <class>eapli.base.catalogomanagement.domain.Catalogo</class>
+    <class>eapli.base.catalogomanagement.domain.Objetivo</class>
+    <class>eapli.base.catalogomanagement.domain.SLA</class>
+    <class>eapli.base.colaboradormanagement.domain.Colaborador</class>
+    <class>eapli.base.nivelcriticidademanagement.domain.NivelCriticidade</class>
+    <class>eapli.base.servicomanagement.domain.Atributo</class>
+    <class>eapli.base.servicomanagement.domain.Formulario</class>
+    <class>eapli.base.servicomanagement.domain.Keyword</class>
+    <class>eapli.base.servicomanagement.domain.Servico</class>
+    <class>eapli.base.servicomanagement.domain.FluxoTarefa</class>
+    <class>eapli.base.tarefamanagement.domain.TarefaExecucao</class>
+    <class>eapli.base.tarefamanagement.domain.TarefaAprovacao</class>
+    <class>eapli.base.tarefamanagement.domain.Script</class>
+    <class>eapli.base.servicomanagement.domain.Servico</class>
+    <class>eapli.base.equipaManagement.domain.Equipa</class>
+    <class>eapli.base.equipaManagement.domain.TipoEquipa</class>
+    <class>eapli.base.servicomanagement.domain.Pedido</class>
+    <class>eapli.base.servicomanagement.domain.FormularioP</class>
+    <class>eapli.base.servicomanagement.domain.AtributoPreenchido</class>
+    <class>eapli.base.fluxotarefaresolucao.domain.TarefaExecRes</class>
+    <class>eapli.base.fluxotarefaresolucao.domain.TarefaAprovRes</class>
+    <class>eapli.base.fluxotarefaresolucao.domain.FluxoResolucao</class>
+    <properties>
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/base"/>-->
+
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@//vs295.dei.isep.ipp.pt:1521/XEXDB"/>
+
+
+      <property name="javax.persistence.jdbc.user" value="SYSTEM"/>
+      <property name="javax.persistence.jdbc.password" value="21d643f485523520a702"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <!-- <property name="eclipselink.logging.level" value="FINE"/> -->
+      <!-- <property name = "hibernate.show_sql" value = "true" /> -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+
+      <property name="hibernate.connection.pool_size" value="100"/>
+    </properties>
+
+  </persistence-unit>
+
+
+</persistence>

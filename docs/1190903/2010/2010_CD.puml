@@ -1,0 +1,52 @@
+@startuml
+
+class DefinirNiveisCriticidadeUI {
+}
+
+class DefinirNiveisCriticidadeController {
+    -NivelCriticidade nivel
+    -Objetivo objetivo
+    +novoNivel(cor, etiquetas)
+    +definirObjetivo(tempoMaximoAprovacao, tempoMedioAprovacao, tempoMaximoResolucao, tempoMedioResolucao)
+    +registaNiveisEObjetivos()
+}
+
+class PersistenceContext{
+    +repositories()
+}
+
+class RepositoryFactory{
+    +newTransactionContext()
+    +create()
+}
+
+class NivelCriticidade {
+    -int escalaNumerica
+    -String cor
+    -String etiqueta
+    +definirObjetivo(objetivo)
+}
+
+class Objetivo {
+    -int tempoMaximoAprovacao
+    -int tempoMedioAprovacao
+    -int tempoMaximoResolucao
+    -int tempoMedioResolucao
+}
+
+class TransactionContext {
+    +beginTransaction()
+    +commit()
+}
+
+DefinirNiveisCriticidadeUI ..> DefinirNiveisCriticidadeController
+
+DefinirNiveisCriticidadeController ..> PersistenceContext
+DefinirNiveisCriticidadeController ..> NivelCriticidade
+
+NivelCriticidade ..> Objetivo
+
+PersistenceContext ..> RepositoryFactory
+PersistenceContext ..> TransactionContext
+
+@enduml

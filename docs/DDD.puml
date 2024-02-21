@@ -1,0 +1,372 @@
+@startuml
+
+left to right direction
+
+
+
+
+
+'ações'
+
+
+
+
+
+
+
+
+'util'
+
+
+
+
+
+
+
+'ligações'
+
+
+
+
+
+Pedido "1" --> "1" Servico : caracterizado por
+
+
+
+
+
+
+
+
+
+
+
+package Colaborador{
+
+Entity Colaborador <<root>> {
+}
+
+class Funcao <<value object>>{
+    -String descricao
+}
+
+Colaborador "*" --> "1" Equipa : pertence a
+Colaborador "1" --> "1" "<<value object>>\nLocalResidencia": reside em
+Colaborador "1" --> "1" "<<value object>>\nNomeComum": denominado por
+Colaborador "1" --> "1" "<<value object>>\nDataNascimento": nasceu em
+Colaborador "1" --> "1" "<<value object>>\nEmail": tem
+Colaborador "1" --> "1" "<<value object>>\nTelemovel": tem
+Colaborador "*" --> "1" "Funcao" : tem
+Colaborador "1" --> "*" Colaborador : é responsável
+
+}
+
+
+
+
+package FluxoAtividadeEspecificacao{
+Entity TarefaExecução <<entity>>{}
+
+class Script<<value object>>{}
+
+
+TarefaExecução "1" --> "1" AutomaticoTarefa :possui
+TarefaExecução "1" --> "0..1" FormularioPreenchido :possui
+TarefaExecução "1" --> "1" Script: controlada por
+
+FluxoAtividade "1" --> "*" TarefaExecução
+
+
+
+class FluxoAtividade<<Root>>{
+}
+
+
+
+Entity TarefaAprovação <<entity>>{}
+
+
+
+
+class AutomaticoTarefa <<value object>>{
+}
+
+TarefaAprovação "1" --> "0..1" FormularioPreenchido :possui
+
+
+}
+
+
+
+
+package FluxoAtividadeResolucao{
+
+
+class FluxoAtividadeResolucao<<Root>>{
+}
+Entity TarefaExecuçãoResolucao <<entity>>{}
+
+Entity TarefaAprovaçãoResolucao <<entity>>{}
+
+TarefaExecuçãoResolucao "1" --> "1" DataLimiteTarefa :delimitada por
+
+TarefaAprovaçãoResolucao"1" --> "1" DataLimiteTarefa :delimitada por
+
+TarefaExecuçãoResolucao "1" --> "1" EstadoTarefa :possui
+
+TarefaAprovaçãoResolucao "1" --> "1" EstadoTarefa :possui
+
+FluxoAtividadeResolucao "1"-> "1" FluxoAtividade
+
+FluxoAtividadeResolucao "1" --> "*" TarefaExecuçãoResolucao
+FluxoAtividadeResolucao "1" --> "*" TarefaAprovaçãoResolucao
+
+TarefaAprovaçãoResolucao "1" --> "1" Colaborador
+
+TarefaExecuçãoResolucao "1" --> "0..1" Colaborador
+
+TarefaExecuçãoResolucao "1" -> "1" Equipa
+
+
+
+class EstadoTarefa{
+    -String estado
+}
+
+
+class DataLimiteTarefa <<value object>>{
+}
+
+
+
+
+
+
+
+
+class AutomaticoTarefa <<value object>>{
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+package Formulario{
+class Formulario<<Root>>{
+}
+class Atributo<<entity>>{
+}
+
+Formulario "1" --> "*" "Atributo" : possui
+Formulario "1" --> "1" "<<value object>>\nIdentificadorUnicoFormulario" : identificado por
+Formulario "1" --> "1" "<<value object>>\nNome" : denominado por
+
+Atributo "1" --> "1" "<<value object>>\nNomeVariavel" : denomidado por
+Atributo "1" --> "1" "<<value object>>\nLabel" : caracterizado por
+Atributo "1" --> "1" "<<value object>>\nDescricaoAjuda" : descrito por
+Atributo "1" --> "1" "<<value object>>\nTipoDadosBase" : possui
+
+
+}
+
+package FormularioPreenchido{
+class FormularioPreenchido<<Root>>{
+}
+
+class AtributoPreenchido{}
+
+FormularioPreenchido "1" --> "1" Formulario: caracterizado por
+FormularioPreenchido "1" --> "*" AtributoPreenchido: possui
+
+}
+
+
+
+package SLA{
+class SLA{
+    }
+    class NivelCriticidade{
+        -int valorNumerico
+        -String cor
+    }
+
+    class Etiqueta <<value object>>{
+        -String prioridade
+    }
+
+}
+
+
+package Pedido{
+
+    Entity Pedido <<root>>{
+    }
+
+    class UrgenciaPedido <<value object>>{
+        -String urgencia
+    }
+
+    class Ficheiro<<value object>>{
+    }
+
+    class EstadoPedido<<value object>>{
+        -String estado
+    }
+     class IdentificadorUnico <<value object>>{
+     }
+     class DataSolicitacao<<value object>>{
+    }
+     class DataLimite<<value object>>{
+     }
+     class ComentarioConclusivo<<value object>>{
+     }
+     class Classificacao<<value object>>{
+     }
+
+Pedido "1" -->"1" FluxoAtividadeResolucao: possui
+Pedido "1" --> "1" UrgenciaPedido : tem
+Pedido "1" --> "1" EstadoPedido : tem
+Pedido "1" --> "*" Ficheiro : tem
+Pedido "1" --> "1"  IdentificadorUnico: identificado por
+Pedido "1" --> "1"  DataSolicitacao: possui
+Pedido "1" --> "1"  DataLimite: delimitado por
+Pedido "1" --> "1"  ComentarioConclusivo: possui
+Pedido "1" --> "1"  Classificacao:  classificado por
+Pedido "1" --> "1" SLA : tem dados
+Pedido "1" --> "1" FormularioPreenchido : possui dados
+ Pedido "1" --> "0..1"  Feedback: pode possuir
+Pedido "1" --> "1" Colaborador: realizado por
+
+
+
+
+
+
+
+NivelCriticidade "1" --> "1" Etiqueta : possui
+NivelCriticidade "1" --> "*" Objetivo : possui
+
+
+
+}
+
+
+
+package Servico{
+
+    Entity Servico <<root>>{
+    }
+
+
+    class CodigoUnico <<value object>>{
+    }
+
+    class SLA <<root>>{
+    }
+
+
+
+
+    Servico "1" --> "1" "CodigoUnico" : identificado por
+    Servico "1" --> "1" "<<value object>>\nTitulo" : entitulado por
+    Servico "1" --> "1" "<<value object>>\nDescricaoSimples" : descrito por
+    Servico "1" --> "1" "<<value object>>\nDescricaoCompleta" : descrito por
+    Servico "1" --> "1" "<<value object>>\nIcone" : possui
+    Servico "1" --> "1" "<<value object>>\nKeyword" : possui
+    FluxoAtividade "1" --> "*" TarefaAprovação
+    Servico "1" --> "0..1" Formulario : tem
+    Servico "1" --> "1" FluxoAtividade : tem
+
+
+    SLA "1" --> "*" NivelCriticidade : possui
+}
+
+
+package Objetivo{
+
+ class Objetivo<<root>>{
+    }
+
+Objetivo "1" --> "1" "<<value object>>\nTempoMedioAprovacao" :possui
+Objetivo "1" --> "1" "<<value object>>\nTempoMaximoAprovacao":possui
+Objetivo "1" --> "1" "<<value object>>\nMedioAceitacao":possui
+Objetivo "1" --> "1" "<<value object>>\nTempoMaximoAceitacao":possui
+
+}
+
+package Catalogo{
+Entity Catalogo <<root>> {
+     }
+
+         Catalogo "1" --> "*" CriterioAcesso : possui
+        Catalogo "1" --> "*" Servico : possui
+        Catalogo "1"  --> "1" "<<value object>>\nIdentificadorUnicoCatalogo" :identificado por
+        Catalogo "1"  --> "1" "<<value object>>\nTituloCatalogo" :entitulado por
+        Catalogo "1"  --> "1" "<<value object>>\nDescricaoSimplesCatalogo":descrito por
+        Catalogo "1"  --> "1" "<<value object>>\nDescricaoCompletaCatalogo":descrito por
+        Catalogo "1"  --> "1" "<<value object>>\nIconeCatalogo":possui
+        Catalogo "1" --> "1" SLA : tem dados
+        Catalogo "1" --> "*" Objetivo : possui
+        Catalogo "1" --> "1" Colaborador: tem como responsável
+
+}
+
+
+
+
+package Equipa{
+
+Entity Equipa <<root>>{
+}
+
+class TipoEquipa <<entity>>{
+}
+
+class AcronimoUnico <<value object>>{
+}
+class Designacao<<value object>> {
+}
+class CodigoUnico <<value object>>{
+}
+class Descricao <<value object>>{
+}
+class Cor <<value object>>{
+}
+
+class CriterioAcesso <<value object>>{
+}
+
+Equipa "1" --> "1" AcronimoUnico:identificada por
+Equipa "1" --> "1" Designacao:possui
+Equipa "1" --> "1" "<<value object>>\nCodigoUnicoEqupa" :identificada por
+Equipa "*" --> "*" Catalogo : tem acesso a
+
+Equipa "1" --> "1" TipoEquipa:possui
+
+
+TipoEquipa "1" --> "1" "Descricao":descrito por
+TipoEquipa "1" --> "1" "Cor":possui
+TipoEquipa "1" --> "1" "<<value object>>\nCodigoUnicoTipoEqupa"
+
+
+
+
+}
+
+
+
+
+
+
+@enduml

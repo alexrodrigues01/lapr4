@@ -1,0 +1,77 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor USER
+participant "<<presentation>>\nConsultarCatalogoUI" as UI
+participant "<<application>>\nConsultarCatalogoController" as CONTROLLER
+participant "AuthzRegistry" as AUTHZ
+participant "authz:\n AuthorizationService" AS AUTHZSERVICE
+participant "userSession\n:UserSession" as USERSESSION
+participant "systemUser:\n SystemUser" AS SYSTEMUSER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database "<<repository>>\nCatalogoRepository" as REPO1
+participant "<<domain>>\nCatalogo" as CAT
+participant "<<domain>>\nServico"
+collections "<<java interface>>\n listaCatalogos"
+collections "<<java interface>>\n listaCatalogosColaborador"
+
+activate USER
+    ref over UI, CAT
+    getCatalogosColaborador
+    end ref
+
+
+    opt
+    USER->UI: introduz titulo do catálogo
+    activate UI
+        UI->CONTROLLER : catalogo=getCatalogobyTitulo(tituloCatalogo)
+        activate CONTROLLER
+            CONTROLLER->CONTROLLER: getCatalogobyTitulo(tituloCatalogo)
+        deactivate CONTROLLER
+        UI--> USER:  apresenta o catalogo selecionado
+    deactivate UI
+    end opt
+
+    opt
+        USER->UI: introduz identificador unico do catálogo
+        activate UI
+            UI->CONTROLLER : catalogo=getCatalogobyIdentificador(identificadorUnico)
+            activate CONTROLLER
+                CONTROLLER->CONTROLLER: getCatalogobyIdentificador(identificadorUnico)
+            deactivate CONTROLLER
+            UI--> USER:  apresenta o catalogo selecionado
+        deactivate UI
+        end opt
+
+      opt
+        USER->UI: introduz titulo do servico
+        activate UI
+            UI->CONTROLLER : servico=getServicobyTitulo(tituloServico)
+            activate CONTROLLER
+                CONTROLLER->CONTROLLER: getServicobyTitulo(tituloServico)
+            deactivate CONTROLLER
+            UI--> USER:  apresenta o servico selecionado
+        deactivate UI
+        end opt
+
+
+
+
+
+     opt
+            USER->UI: introduz keyword do servico
+            activate UI
+                UI->CONTROLLER : servico=getServicobyKeyword(keyword)
+                activate CONTROLLER
+                    CONTROLLER->CONTROLLER: getServicobyKeyword(keyword)
+                deactivate CONTROLLER
+                UI--> USER:  apresenta o servico selecionado
+            deactivate UI
+     end opt
+
+deactivate USER
+
+@enduml

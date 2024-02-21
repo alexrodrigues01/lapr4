@@ -1,0 +1,26 @@
+@startuml use-case-realization.svg
+
+participant Portal <<client>>
+
+MotorFluxoAtividadeDaemon -> MotorFluxoAtividadeServer : new
+loop true
+MotorFluxoAtividadeDaemon -> MotorFluxoAtividadeServer: start
+activate MotorFluxoAtividadeServer
+MotorFluxoAtividadeServer -> MotorFluxoAtividadeServer: accept
+
+Portal --> MotorFluxoAtividadeServer
+
+participant HandleClient <<thread>>
+activate HandleClient
+MotorFluxoAtividadeServer -\ HandleClient: start
+deactivate MotorFluxoAtividadeServer
+end
+
+HandleClient -> MessageParser:parse
+HandleClient -> HandleClient: execute
+HandleClient -> MessageBuilder:build
+
+HandleClient --> Portal
+deactivate HandleClient
+
+@enduml

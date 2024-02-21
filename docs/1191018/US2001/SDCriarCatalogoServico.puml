@@ -1,0 +1,202 @@
+@startuml
+autonumber
+
+actor "GSH" as ACT
+participant "<<presentation>>\nCriarCatalogoUI" as UI
+participant "<<application>>\nCriarCatalogoController" as CONTROLLER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+participant "Objetivo\n:objetivo" as OBJETIVO
+database  "<<repository>>\nCatalogoRepository" as REPO2
+database  "<<repository>>\nServicoRepository" as REPO1
+database "<<repository>>\nObjetivoRepository" as REPO3
+database "<<repository>>\nColaboradorRepository" as REPO4
+database "<<repository>>\nEquipaRepository" as REPO5
+participant "<<domain>> Catalogo" as OBJECT
+participant "ctx:\n TransactionalContext" as TRANSACT
+collections "<<java interface>> listaServicos"
+collections "<<java interface>> listaColaboradores"
+collections "<<java interface>> listaEquipas"
+participant "Servico\n:servico" as SERVICO
+participant "Colaborador\n:colaborador"
+participant "Equipa\n:equipa"
+
+
+activate ACT
+     ACT->UI:inicia o processo de criação do catálogo
+     activate UI
+        UI-> CONTROLLER : create()
+        activate CONTROLLER
+            CONTROLLER-> PERS : repositories()
+            activate PERS
+                PERS-> FACT: newTransactionalContext()
+                PERS-->CONTROLLER: ctx
+            deactivate PERS
+            CONTROLLER-> PERS : repositories()
+            activate PERS
+                PERS->FACT: create(ctx)
+                activate FACT
+                    FACT->REPO2: create()
+                    activate REPO2
+                    deactivate REPO2
+                deactivate FACT
+                PERS-->CONTROLLER: CatalogoRepository
+            deactivate PERS
+        deactivate CONTROLLER
+        UI-->ACT: solicita os dados do catálogo(iconeCatalogo,descricaoCompleta\n,descricaoSimples,titulo,identificadorUnico,criterioAcesso,sla)
+     deactivate UI
+     ACT-> UI: introduz os dados solicitados
+     activate UI
+        UI->CONTROLLER: novoCatalogo(iconeCatalogo,descricaoCompleta\n,descricaoSimples,titulo,identificadorUnico,criterioAcesso,sla)
+        activate CONTROLLER
+            CONTROLLER->OBJECT: catalogo=create(iconeCatalogo,descricaoCompleta,descricaoSimples,titulo,identificadorUnico,criterioAcesso,sla)
+        deactivate CONTROLLER
+        UI->CONTROLLER: listaServicos=getServicos()
+        activate CONTROLLER
+            CONTROLLER->PERS: repositories()
+            activate PERS
+                PERS->FACT: create()
+                activate FACT
+                    FACT->REPO1: create()
+                    activate REPO1
+                    deactivate REPO1
+                deactivate FACT
+                PERS-->CONTROLLER: ServicoRepository
+            deactivate PERS
+            CONTROLLER->REPO1: listaServicos=getServicos()
+            activate REPO1
+            deactivate REPO1
+        deactivate CONTROLLER
+        loop
+        UI-->ACT : apresenta a lista e solicita que selecione um serviço
+     deactivate UI
+     ACT->UI: seleciona um serviço que pretende adicionar catálogo
+     activate UI
+        UI->CONTROLLER: adicionarServico(codigoUnico)
+        activate CONTROLLER
+           CONTROLLER-> CONTROLLER: servico=getServicoByCodigoUnico(codigoUnico)
+           CONTROLLER->OBJECT: adicionarServico(servico)
+           activate OBJECT
+           deactivate OBJECT
+        deactivate CONTROLLER
+
+     end loop
+        loop
+
+        UI-->ACT: solicita os dados do objetivo( tempoMaximoAprovacao, \ntempoMedioAprovacao,tempoMaximoAceitacao, \ntempoMedioAceitacao )
+        deactivate UI
+
+     ACT->UI: introduz os dados solicitados
+     activate UI
+        UI-> CONTROLLER: adicionarObjetivo(tempoMaximoAprovacao, \ntempoMedioAprovacao,tempoMaximoAceitacao, \ntempoMedioAceitacao )
+        activate CONTROLLER
+            CONTROLLER-> OBJETIVO ** : objetivo= create(tempoMaximoAprovacao, \ntempoMedioAprovacao,tempoMaximoAceitacao, \ntempoMedioAceitacao )
+            CONTROLLER-> OBJECT : adicionarObjetivo(objetivo)
+            activate OBJECT
+            deactivate OBJECT
+        deactivate CONTROLLER
+        end loop
+
+        UI->CONTROLLER: listaColaboradores=getColaboradores()
+        activate CONTROLLER
+            CONTROLLER->PERS: repositories()
+            activate PERS
+                PERS->FACT: create()
+                activate FACT
+                    FACT->REPO4: create()
+                    activate REPO4
+                    deactivate REPO4
+                deactivate FACT
+                PERS-->CONTROLLER: ColaboradorRepository
+            deactivate PERS
+            CONTROLLER->REPO4: listaColaboradores= getColaboradores()
+            activate REPO4
+            deactivate REPO4
+        deactivate CONTROLLER
+        UI-->ACT : apresenta a lista de colaboradores e solicita que selecione um
+     deactivate UI
+
+     ACT-> UI: seleciona o colaborador responsável
+     activate UI
+        UI->CONTROLLER: adicionarColaborador(id)
+        activate CONTROLLER
+            CONTROLLER->CONTROLLER: colaborador=getColaboradorByEmail(email)
+            activate REPO4
+            deactivate REPO4
+            CONTROLLER->OBJECT: adicionarColaborador(colaborador)
+            activate OBJECT
+            deactivate OBJECT
+        deactivate CONTROLLER
+
+        UI->CONTROLLER: listaEquipas=getEquipas()
+                activate CONTROLLER
+                    CONTROLLER->PERS: repositories()
+                    activate PERS
+                        PERS->FACT: create()
+                        activate FACT
+                            FACT->REPO5: create()
+                            activate REPO5
+                            deactivate REPO5
+                        deactivate FACT
+                        PERS-->CONTROLLER: EquipaRepository
+                    deactivate PERS
+                    CONTROLLER->REPO5: listaEquipas= getEquipas()
+                    activate REPO5
+                    deactivate REPO5
+                deactivate CONTROLLER
+                loop
+                UI-->ACT : apresenta a lista de equipas e solicita que selecione uma
+             deactivate UI
+
+             ACT-> UI: seleciona uma equipa que tem acesso ao catálogo
+             activate UI
+                UI->CONTROLLER: adicionarEquipa(id)
+                activate CONTROLLER
+                    CONTROLLER->CONTROLLER: equipa=getEquipaByEmail(email)
+                    activate REPO5
+                    deactivate REPO5
+                    CONTROLLER->OBJECT: adicionarEquipa(equipa)
+                    activate OBJECT
+                    deactivate OBJECT
+                deactivate CONTROLLER
+                end loop
+        UI--> ACT: apresenta os dados e solicita confirmação
+     deactivate UI
+     ACT-> UI: confirma
+     activate UI
+        UI->CONTROLLER: registarCatalogo()
+        activate CONTROLLER
+        CONTROLLER-> PERS : repositories()
+                    activate PERS
+                        PERS->FACT: create(ctx)
+                        activate FACT
+                            FACT->REPO3: create()
+                            activate REPO3
+                            deactivate REPO3
+                        deactivate FACT
+                        PERS-->CONTROLLER: ObjetivoRepository
+                    deactivate PERS
+            CONTROLLER->TRANSACT: beginTransaction()
+            activate TRANSACT
+            deactivate TRANSACT
+            CONTROLLER->REPO3: save(objetivo)
+            activate REPO3
+            deactivate REPO3
+
+            CONTROLLER->REPO2: save(catalogo)
+            activate REPO2
+            deactivate REPO2
+
+            CONTROLLER->TRANSACT: commit()
+            activate TRANSACT
+            deactivate TRANSACT
+
+        deactivate CONTROLLER
+        UI-->ACT: informa do sucesso da operação
+     deactivate UI
+
+deactivate ACT
+
+
+
+@enduml

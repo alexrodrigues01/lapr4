@@ -1,0 +1,242 @@
+ATRIBUIÇÃO AUTOMÁTICA COLABORADORES
+
+======================================================================================================
+
+FCFS
+
+    listaThread <- cria lista vazia de ThreadColaborador
+
+    //boolean true no construtor da ThreadColaborador indica que vai ser usado o FCFS e null que ainda não foi adicionado nenhum colaborador
+    execThread <- cria ThreadColaborador(null,true)
+
+    //cria instancias de ThreadColaborador
+    WHILE (true)
+        MotorFluxoDaemon.lista <- cria lista vazia de colaboradores no Motor de Fluxo Daemon
+
+        SYNCHRONIZED (this)
+            wait ao this
+        END SYNCHRONIZED
+
+        listaTarefas <- obtém lista de tarefas
+
+        IF (lista de colaboradores do Motor de Fluxo Daemon não está vazia )
+
+            FOR (cada colaborador da lista de colaboradores do Motor de Fluxo Daemon)
+
+                //boolean true no construtor da ThreadColaborador indica que vai ser usado o FCFS e colaborador é o da lista de colaboradores do Motor de Fluxo Daemon
+                threadColaborador <- cria ThreadColaborador(colaborador,true)
+
+                IF (listaThread não contém a threadColaborador)
+                    start à threadColaborador
+                    adiciona à listaThread a threadColaborador
+                END IF
+
+            END FOR
+
+            define a proxTarefa no Motor de Fluxo Daemon como null
+
+            FOR (cada tarefa da listaTarefas)
+
+                numColabDispTarefa <- obtem numero de colaboradores disponiveis para atribuir à tarefa
+
+                define a proxTarefa no Motor de Fluxo Daemon como tarefa da listaTarefas
+
+                WHILE (proxTarefa não for null)
+
+                    notifica todas as threads através do método notAll na ThreadColaborador
+
+                    //dorme 300 milisegundos
+                    sleep(300)
+
+                    decrementa numColabDispTarefa
+
+                    IF (numColabDispTarefa menor ou igual a 0)
+
+                        quando não há mais colaboradores na queue eles são adicionados novamente
+
+                    END IF
+
+                END WHILE
+
+            END FOR
+
+        END IF
+
+    END WHILE
+
+END FCFS
+
+======================================================================================================
+
+ALGORITMO DE CARGA
+
+    listaThread <- cria lista vazia de ThreadColaborador
+
+    MotorFluxoDaemon.lista <- cria lista vazia de colaboradores no Motor de Fluxo Daemon
+
+    WHILE (true)
+
+        SYNCHRONIZED (this)
+            wait this
+        END SYNCHRONIZED
+
+        listaTarefas <- obtém lista de tarefas
+
+        IF(listaTarefas não tem tarefas)
+            CONTINUE
+        END IF
+
+        //boolean false no construtor da ThreadColaborador indica que vai ser usado o Algoritmo de carga e null que ainda não foi adicionado nenhum colaborador
+        execThread <- cria ThreadColaborador(null,false)
+
+        FOR (cada colaborador da lista de colaboradores do Motor de Fluxo Daemon)
+
+            //boolean false no construtor da ThreadColaborador indica que vai ser usado o Algoritmo de carga e colaborador é o da lista de colaboradores do Motor de Fluxo Daemon
+            threadColaborador <- cria ThreadColaborador(colaborador,false)
+
+            IF (listaThread não contém a threadColaborador)
+                start à threadColaborador
+
+                adiciona à listaThread a threadColaborador
+
+                SYNCHRONIZED (this)
+                    wait ao this
+                END SYNCHRONIZED
+            END IF
+
+        END FOR
+
+        define a proxTarefa no Motor de Fluxo Daemon como null
+
+        ordena a listaThread pelo numero de tarefas pendentes de cada colaborador juntamente com ordenar pelo tempo médio dessas mesmas tarefas pendentes
+
+        FOR (cada tarefa da listaTarefas)
+
+            numColabDispTarefa <- obtem numero de colaboradores disponiveis para atribuir à tarefa
+
+            define a proxTarefa no Motor de Fluxo Daemon como tarefa da listaTarefas
+
+            WHILE (proxTarefa não for null)
+
+                bool <- cria variável boolean a false para controlar se pode atribuir um colaborador à thread
+
+                FOR (cada threadColaborador da listaThread)
+
+                    IF ( é possível atribuir colaborador à threadColaborador)
+
+                        SYNCHRONIZED (threadColaborador)
+
+                            tarefa da threadColaborador <- proxTarefa do Motor de Fluxo Daemon
+
+                            define a proxTarefa no Motor de Fluxo Daemon como null
+
+                            notify à threadColaborador
+
+                            remove o colaborador da lista de colaboradores no Motor de Fluxo Daemon
+
+                        END SYNCHRONIZED
+
+                        bool <- true
+
+                        BREAK
+
+                    END IF
+
+                END FOR
+
+                IF (bool == true)
+                    BREAK
+                END IF
+
+                ordena a listaThread pelo numero de tarefas pendentes de cada colaborador juntamente com ordenar pelo tempo médio dessas mesmas tarefas pendentes
+
+                quando não há mais colaboradores na queue eles são adicionados novamente
+
+            END WHILE
+
+        END FOR
+
+    END WHILE
+
+END ALGORITMO DE CARGA
+
+======================================================================================================
+
+THREAD COLABORADOR extends THREAD
+
+    Colaborador colaborador
+    boolean fcfs
+    object lock
+    Tarefa tarefa
+
+    CONSTRUTOR	(Colaborador colaborador, boolean fcfs)	//define qual o algoritmo que usa e o colaborador da thread
+        this.colaborador <- colaborador
+        this.fcfs <- fcfs
+    END CONSTRUTOR
+
+    notAll
+
+        SYNCHRONIZED (lock)
+            notify all lock
+        END SYNCHRONIZED
+
+    END notAll
+
+    RUN
+
+        WHILE	(true)
+
+            IF	(fcfs == true)
+
+                WHILE (proxTarefa no Motor de Fluxo Daemon == null)
+                    SYNCHRONIZED (lock)
+                        wait lock
+                    END SYNCHRONIZED
+                END WHILE
+
+            ELSE
+
+                SYNCHRONIZED (this)
+
+                    WHILE (true)
+
+                        SYNCHRONIZED (algoritmo)
+
+                            notify algoritmo
+
+                        END SYNCHRONIZED
+
+                        wait this
+                        BREAK
+
+                    END WHILE
+
+                END SYNCHRONIZED
+
+            END IF
+
+            inicia a variavel da tarefa a null
+
+            IF	(fcfs == true)
+
+                IF (é possível atribuir)
+
+                    SYNCHRONIZED (lock)
+                        atribui a tarefa
+                    END SYNCHRONIZED
+
+                END IF
+
+            ELSE
+
+                SYNCHRONIZED (this)
+                    atribui a tarefa
+                END SYNCHRONIZED
+
+            END IF
+
+        END WHILE
+
+    END RUN
+
+END THREAD COLABORADOR

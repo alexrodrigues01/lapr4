@@ -1,0 +1,56 @@
+@startuml
+
+class EquipaUI{
+}
+
+class EquipaController{
++create()
++Equipa novaEquipa(identificadorUnico,acronimoUnico,designacao)
++getTiposEquipa()
++getTipoEquipaByCodigoUnico(codigoUnico)
++adicionarTipoEquipa(codigoUnico)
++getColaboradores()
++getColaboradorByEmail(email)
++adicionarColaborador(email)
++getColaboradoresEquipa()
++adicionarColaboradorResponsavel(email)
++registarEquipa()
+}
+
+class PersistenceContext{
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database EquipaRepository{
+}
+
+database TipoEquipaRepository{
+}
+
+database ColaboradorRepository{
+}
+
+class Equipa{
++create(identificadorUnico,acronimoUnico,designacao)
++adicionarTipoEquipa(tipoEquipa)
++adicionarColaborador(colaborador)
++adicionarColaboradorResponsavel(colaboradorResponsavel)
+}
+
+EquipaUI..> EquipaController
+
+EquipaController..>PersistenceContext
+EquipaController..>Equipa
+
+PersistenceContext..>RepositoryFactory
+
+RepositoryFactory..>EquipaRepository
+RepositoryFactory..>TipoEquipaRepository
+RepositoryFactory..>ColaboradorRepository
+
+
+@enduml

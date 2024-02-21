@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><company>
+    <produto id="1001">
+        <nome>Produto1</nome>
+        <categoria>CAT1</categoria>
+        <preco>21.15</preco>
+        <percentagemDesconto>3.3</percentagemDesconto>
+    </produto>
+    <produto id="2001">
+        <nome>Produto2</nome>
+        <categoria>CAT2</categoria>
+        <preco>34.12</preco>
+        <percentagemDesconto>3.4</percentagemDesconto>
+    </produto>
+</company>

@@ -1,0 +1,104 @@
+@startuml
+autonumber
+
+actor GSH as gsh
+
+participant "<<presentation>>\nDefinirNiveisCriticidadeUI" as ui
+participant "<<application>>\nDefinirNiveisCriticidadeController" as controller
+
+participant "<<persistence>>\nPersistenceContext" as persistence
+participant "<<factory>>\nfactory:RepositoryFactory" as factory
+
+participant "ctx\n:TransactionContext" as ctx
+
+database "<<repository>>\n:NivelCriticidadeRepository" as dbnivel
+database "<<repository>>\n:ObjetivoRepository" as dbobjetivo
+
+participant "<<domain>>\n:nivel\n:NivelCriticidade" as nivel
+participant "<<domain>>\n:objetivo\n:Objetivo" as objetivo
+
+activate gsh
+gsh -> ui : inicia a definicao dos niveis de criticidade
+activate ui
+ui -> controller : create()
+activate controller
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: newTransactionContext()
+activate factory
+deactivate factory
+persistence --> controller: ctx
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbnivel : create()
+activate dbnivel
+deactivate dbnivel
+deactivate factory
+persistence --> controller: NivelCriticidadeRepository
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbobjetivo : create()
+activate dbobjetivo
+deactivate dbobjetivo
+deactivate factory
+persistence --> controller: ObjetivoRepository
+deactivate persistence
+deactivate controller
+
+loop criação de 5 niveis de criticidade
+ui -> gsh : solicita os dados do nivel de criticidade (cor, etiqueta)
+deactivate ui
+gsh -> ui : introduz os dados solicitados
+activate ui
+ui -> controller : novoNivel(escalaNumerica, cor, etiqueta)
+activate controller
+controller -> nivel** : create()
+deactivate controller
+ui -> gsh : solicita os dados do objetivo \n(tempoMaximoAproacao, tempoMedioAprovacao, tempoMaximoResolucao, tempoMedioResolucao)
+deactivate ui
+gsh -> ui : introduz os dados solicitados
+activate ui
+ui -> controller : definirObjetivo\n(tempoMaximoAproacao, tempoMedioAprovacao, tempoMaximoResolucao, tempoMedioResolucao)
+activate controller
+controller -> objetivo** : create()
+controller -> nivel : definirObjetivo(objetivo)
+activate nivel
+deactivate nivel
+deactivate controller
+end loop
+ui -> gsh : informa do sucesso da operação e pede confirmacao para registar
+deactivate ui
+
+gsh -> ui : confirma
+activate ui
+ui -> controller : registaNiveisEObjetivos()
+activate controller
+controller -> ctx : beginTransaction()
+activate ctx
+deactivate ctx
+
+controller -> dbobjetivo : save(objetivo)
+activate dbobjetivo
+deactivate dbobjetivo
+
+controller -> dbnivel : save(nivel)
+activate dbnivel
+deactivate dbnivel
+
+controller -> ctx : commit()
+activate ctx
+deactivate ctx
+
+deactivate controller
+ui -> gsh : informa do sucesso da operação
+deactivate ui
+deactivate gsh
+
+
+@enduml

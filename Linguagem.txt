@@ -1,0 +1,39 @@
+TIPO                     //indicar o tipo de script
+    CONSULTAR_FICHEIRO   // (consulta/obtenção de informação constante num determinado ficheiro local partindo de dados existentes no contexto do pedido em causa)
+    REALIZAR_CALCULOS    // (realização de cálculos matemáticos baseados em informação disponível tanto no contexto do pedidocomo  em  informação  obtida  durante  a  realização  do script)
+    ENVIAR_EMAIL         // (envio de emails cujo remetente(s), assunto e corpo da mensagem estão estaticamente definidos no script)
+
+
+====================CONSULTAR FICHEIRO====================
+
+FICHEIRO [path do ficheiro]  //encontrar o ficheiro selecionado através do path
+    CONSULTAR P_[index do atributo] //obter informacao no ficheiro do atributo selecionado
+    ADCIONAR P_[index do atributo]  //adicionar informacao ao ficheiro do atributo selecionado
+    ATUALIZAR P_[index do atributo] //atualizar informacao ao ficheiro do atributo selecionado
+       
+
+
+
+====================REALIZAR CALCULOS====================
+SUM OPTION OPTION   //executar uma soma dos atributos indicados 
+SUB OPTION OPTION   //executar uma subtracao dos atributos indicados 
+MUL OPTION OPTION    //executar uma multiplicacao dos atributos indicados 
+DIV OPTION OPTION    //executar uma divisao dos atributos indicados 
+
+SE OPTION MAIOR OPTION FUNCIONALIDADE 
+SE OPTION MENOR OPTION FUNCIONALIDADE
+SE OPTION IGUAL OPTION FUNCIONALIDADE
+
+Em que FUNCIONALIDADE pode ser:
+    -
+
+Em que OPTION pode ser:
+     - P_[index do atributo] 
+     - CONSULTAR P_[index do atributo]
+
+====================ENVIAR EMAIL====================
+
+REMETENTE [email do remetente]      //introduzir o email estaticamente de quem vai enviar o email
+    ASSUNTO [assunto do email]          //introduzir o assunto do email estaticamente 
+        CORPO [corpo do email]              // introduzir o corpo do email estaticamente. Pode conter expressões que precisam de ser previamente computadas e substituídaspelo seu resultado (ex. Valor  Total: {{$vt}}€)
+            DESTINATARIO P_[index do atributo]  //introduzir o destinatior de um email indicado no atributo selecionado

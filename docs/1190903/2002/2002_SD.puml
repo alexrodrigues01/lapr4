@@ -1,0 +1,172 @@
+@startuml
+autonumber
+
+actor GSH as gsh
+participant "<<presentation>>\nEspecificarServicoUI" as ui
+participant "<<application>>\nEspecificarServicoController" as controller
+
+participant "<<persistence>>\nPersistenceContext" as persistence
+participant "<<factory>>\nfactory:RepositoryFactory" as factory
+
+participant "ctx\n:TransactionContext" as ctx
+
+database "<<repository>>\n:ServicoRepository" as dbservico
+database "<<repository>>\n:FormularioRepository" as dbformulario
+database "<<repository>>\n:AtributoRepository" as dbatributo
+database "<<repository>>\n:KeywordRepository" as dbkeyword
+
+participant "<<domain>>\nServico" as servico
+participant "<<domain>>\nFormularioSolicitacao" as formulario
+participant "<<domain>>\natributo\n:Atributo" as atributo
+
+
+activate gsh
+gsh -> ui : inicia a especificação de um serviço
+activate ui
+
+ui -> controller : create()
+activate controller
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: newTransactionContext()
+activate factory
+deactivate factory
+persistence --> controller: ctx
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbservico : create()
+activate dbservico
+deactivate dbservico
+deactivate factory
+persistence --> controller: ServicoRepository
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbformulario : create()
+activate dbformulario
+deactivate dbformulario
+deactivate factory
+persistence --> controller: FormularioRepository
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbatributo : create()
+activate dbatributo
+deactivate dbatributo
+deactivate factory
+persistence --> controller: AtributoRepository
+deactivate persistence
+controller -> persistence: repositories()
+activate persistence
+persistence -> factory: create(ctx)
+activate factory
+factory -> dbkeyword : create()
+activate dbkeyword
+deactivate dbkeyword
+deactivate factory
+persistence --> controller: KeywordRepository
+deactivate persistence
+deactivate controller
+
+ui -> gsh : solicita os dados do serviço (codigo, titulo, \ndescSimples, descCompleta, keyword)
+deactivate ui
+gsh -> ui : introduz os dados solicitados
+note right : dados não introduzidos pelo utilizador ficarão a null
+activate ui
+ui -> controller : novoServico(codigo, titulo, descSimples, descCompleta, keywords)
+activate controller
+controller -> servico** : create()
+activate servico
+servico -> formulario** : create()
+deactivate servico
+deactivate controller
+ui -> gsh : informa do sucesso da operação e \nsolicita dados do formulario (codigo, nome e atributos)
+deactivate ui
+
+gsh -> ui : introduz nome e codigoUnico
+activate ui
+ui -> controller : definirCodigoENome(codigoUnico, nome)
+activate controller
+controller -> servico : definirCodigoENomeFormulario(codigoUnico, nome)
+activate servico
+servico -> formulario : definirCodigoUnico(codigoUnico)
+activate formulario
+deactivate formulario
+servico -> formulario : definirNome(nome)
+activate formulario
+deactivate formulario
+
+deactivate servico
+deactivate controller
+loop varios atributos
+ui -> gsh : solicita dados do atributo(nome, label, descricao, expressaoRegular, tipodados)
+deactivate ui
+
+gsh -> ui : introduz dados do atributo
+activate ui
+ui -> controller : adicionarAtributo(nome, label, descricao, expressaoRegular, tipodados)
+activate controller
+controller -> servico : adicionarAtributoFormulario(nome, label, descricao, expressaoRegular, tipodados)
+activate servico
+servico -> atributo** : create()
+servico -> formulario : adicionarAtributo(atributo)
+activate formulario
+deactivate formulario
+
+deactivate servico
+deactivate controller
+ui -> gsh : informa do sucesso da operação
+end loop
+
+ui -> gsh : pergunta se deseja publicar o servico
+gsh -> ui : confirma
+ui -> controller : publicarServico()
+activate controller
+controller -> servico : verificarPublicacao()
+activate servico
+deactivate servico
+deactivate controller
+ui -> gsh : informa do sucesso da operação \ne pergunta se deseja guardar o servico
+deactivate ui
+gsh -> ui : confirma
+activate ui
+ui -> controller : registarServico()
+activate controller
+controller -> ctx : beginTransaction()
+activate ctx
+deactivate ctx
+
+controller -> dbkeyword : save(keyword)
+activate dbkeyword
+deactivate dbkeyword
+
+controller -> dbatributo : save(atributo)
+activate dbatributo
+deactivate dbatributo
+
+controller -> dbformulario : save(formulario)
+activate dbformulario
+deactivate dbformulario
+
+controller -> dbservico : save(servico)
+activate dbservico
+deactivate dbservico
+
+controller -> ctx : commit()
+activate ctx
+deactivate ctx
+
+deactivate controller
+ui -> gsh : informa do sucesso da operação
+deactivate ui
+deactivate gsh
+
+
+@enduml

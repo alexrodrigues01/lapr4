@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="747px" preserveAspectRatio="none" style="width:1639px;height:747px;" version="1.1" viewBox="0 0 1639 747" width="1639px" zoomAndPan="magnify"><defs><filter height="300%" id="f19f3t1a9s1zbc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[cacd3d18b727cb321ef8926f1d659b83]
+entity CatalogoRepository--><path d="M627.25,695.5 C627.25,685.5 699.75,685.5 699.75,685.5 C699.75,685.5 772.25,685.5 772.25,695.5 L772.25,722.1094 C772.25,732.1094 699.75,732.1094 699.75,732.1094 C699.75,732.1094 627.25,732.1094 627.25,722.1094 L627.25,695.5 " fill="#FFFFFF" filter="url(#f19f3t1a9s1zbc)" style="stroke:#000000;stroke-width:1.5;"/><path d="M627.25,695.5 C627.25,705.5 699.75,705.5 699.75,705.5 C699.75,705.5 772.25,705.5 772.25,695.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="637.25" y="724.0332">CatalogoRepository</text><!--MD5=[a8ed6d51a1408d59ea2d00a9bf5aad2e]
+entity PedidoRepository--><path d="M16.75,695.5 C16.75,685.5 82.75,685.5 82.75,685.5 C82.75,685.5 148.75,685.5 148.75,695.5 L148.75,722.1094 C148.75,732.1094 82.75,732.1094 82.75,732.1094 C82.75,732.1094 16.75,732.1094 16.75,722.1094 L16.75,695.5 " fill="#FFFFFF" filter="url(#f19f3t1a9s1zbc)" style="stroke:#000000;stroke-width:1.5;"/><path d="M16.75,695.5 C16.75,705.5 82.75,705.5 82.75,705.5 C82.75,705.5 148.75,705.5 148.75,695.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="26.75" y="724.0332">PedidoRepository</text><!--MD5=[006e546c035bf897267c54249095f140]
+class SolicitarServicoUI--><rect codeLine="4" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="48" id="SolicitarServicoUI" style="stroke:#A80036;stroke-width:1.5;" width="128" x="862.75" y="7"/><ellipse cx="877.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M879.75,19.5 Q879.9531,19 880.1875,18.75 Q880.4219,18.5 880.6875,18.5 Q881.1563,18.5 881.4531,18.7813 Q881.75,19.0625 881.75,19.7188 L881.75,21.2813 Q881.75,21.9375 881.4688,22.2188 Q881.1875,22.5 880.75,22.5 Q880.3594,22.5 880.1094,22.3281 Q879.8594,22.1563 879.75,21.7031 Q879.7031,21.3906 879.5313,21.2188 Q879.2188,20.8906 878.6563,20.7031 Q878.0938,20.5 877.5313,20.5 Q876.8281,20.5 876.2344,20.7813 Q875.6563,21.0625 875.2031,21.6875 Q874.75,22.3125 874.75,23.1719 L874.75,24.0938 Q874.75,25.125 875.5938,25.8125 Q876.4375,26.5 877.9375,26.5 Q878.8281,26.5 879.4531,26.2969 Q879.8125,26.1875 880.2188,25.8281 Q880.4844,25.625 880.625,25.5625 Q880.7656,25.5 880.9375,25.5 Q881.2656,25.5 881.5,25.7656 Q881.75,26.0156 881.75,26.375 Q881.75,26.7188 881.4063,27.125 Q880.9063,27.7188 880.1094,28.0469 Q879.0625,28.5 877.7813,28.5 Q876.2813,28.5 875.0781,27.9063 Q874.1094,27.4375 873.4219,26.4219 Q872.75,25.4063 872.75,24.2031 L872.75,23.1094 Q872.75,21.8594 873.3438,20.7656 Q873.9531,19.6719 875,19.0938 Q876.0625,18.5 877.25,18.5 Q877.9688,18.5 878.5938,18.75 Q879.2188,19 879.75,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="891.75" y="27.9102">SolicitarServicoUI</text><line style="stroke:#A80036;stroke-width:1.5;" x1="863.75" x2="989.75" y1="39" y2="39"/><line style="stroke:#A80036;stroke-width:1.5;" x1="863.75" x2="989.75" y1="47" y2="47"/><!--MD5=[04fd6cb8e52c1d63b465eece640ce5d3]
+class SolicitarServicoController--><rect codeLine="7" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="172.5234" id="SolicitarServicoController" style="stroke:#A80036;stroke-width:1.5;" width="429" x="712.25" y="116"/><ellipse cx="853.5" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M855.5,128.5 Q855.7031,128 855.9375,127.75 Q856.1719,127.5 856.4375,127.5 Q856.9063,127.5 857.2031,127.7813 Q857.5,128.0625 857.5,128.7188 L857.5,130.2813 Q857.5,130.9375 857.2188,131.2188 Q856.9375,131.5 856.5,131.5 Q856.1094,131.5 855.8594,131.3281 Q855.6094,131.1563 855.5,130.7031 Q855.4531,130.3906 855.2813,130.2188 Q854.9688,129.8906 854.4063,129.7031 Q853.8438,129.5 853.2813,129.5 Q852.5781,129.5 851.9844,129.7813 Q851.4063,130.0625 850.9531,130.6875 Q850.5,131.3125 850.5,132.1719 L850.5,133.0938 Q850.5,134.125 851.3438,134.8125 Q852.1875,135.5 853.6875,135.5 Q854.5781,135.5 855.2031,135.2969 Q855.5625,135.1875 855.9688,134.8281 Q856.2344,134.625 856.375,134.5625 Q856.5156,134.5 856.6875,134.5 Q857.0156,134.5 857.25,134.7656 Q857.5,135.0156 857.5,135.375 Q857.5,135.7188 857.1563,136.125 Q856.6563,136.7188 855.8594,137.0469 Q854.8125,137.5 853.5313,137.5 Q852.0313,137.5 850.8281,136.9063 Q849.8594,136.4375 849.1719,135.4219 Q848.5,134.4063 848.5,133.2031 L848.5,132.1094 Q848.5,130.8594 849.0938,129.7656 Q849.7031,128.6719 850.75,128.0938 Q851.8125,127.5 853,127.5 Q853.7188,127.5 854.3438,127.75 Q854.9688,128 855.5,128.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="138" x="874" y="136.9102">SolicitarServicoController</text><line style="stroke:#A80036;stroke-width:1.5;" x1="713.25" x2="1140.25" y1="148" y2="148"/><line style="stroke:#A80036;stroke-width:1.5;" x1="713.25" x2="1140.25" y1="156" y2="156"/><ellipse cx="723.25" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="145" x="732.25" y="171.4189">List&lt;Catalogo&gt; getCatalogos()</text><ellipse cx="723.25" cy="180.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="403" x="732.25" y="185.2549">List&lt;Catalogo&gt; getCatalogosColaborador(String email,List&lt;Catalogo&gt; listaCatalogos)</text><ellipse cx="723.25" cy="194.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="172" x="732.25" y="199.0908">Servico getServicobyCodigoUnico()</text><ellipse cx="723.25" cy="208.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="224" x="732.25" y="212.9268">Pedido novoPedido(urgenciaPedido,dataLimite)</text><ellipse cx="723.25" cy="222.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="122" x="732.25" y="226.7627">String generateIdPedido()</text><ellipse cx="723.25" cy="236.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="168" x="732.25" y="240.5986">boolean adicionarFicheiro(pathFile)</text><ellipse cx="723.25" cy="250.0156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="178" x="732.25" y="254.4346">Formulario getFormularioSolicitacao()</text><ellipse cx="723.25" cy="263.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="250" x="732.25" y="268.2705">boolean guardarDadosFormularioSolicitacao(dados)</text><ellipse cx="723.25" cy="277.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="77" x="732.25" y="282.1064">registarPedido()</text><!--MD5=[0b1f3d1c1978f9b151365e147219e3b1]
+class AuthzRegistry--><rect codeLine="19" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="61.8359" id="AuthzRegistry" style="stroke:#A80036;stroke-width:1.5;" width="237" x="279.25" y="370.5"/><ellipse cx="356.5" cy="386.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M358.5,383 Q358.7031,382.5 358.9375,382.25 Q359.1719,382 359.4375,382 Q359.9063,382 360.2031,382.2813 Q360.5,382.5625 360.5,383.2188 L360.5,384.7813 Q360.5,385.4375 360.2188,385.7188 Q359.9375,386 359.5,386 Q359.1094,386 358.8594,385.8281 Q358.6094,385.6563 358.5,385.2031 Q358.4531,384.8906 358.2813,384.7188 Q357.9688,384.3906 357.4063,384.2031 Q356.8438,384 356.2813,384 Q355.5781,384 354.9844,384.2813 Q354.4063,384.5625 353.9531,385.1875 Q353.5,385.8125 353.5,386.6719 L353.5,387.5938 Q353.5,388.625 354.3438,389.3125 Q355.1875,390 356.6875,390 Q357.5781,390 358.2031,389.7969 Q358.5625,389.6875 358.9688,389.3281 Q359.2344,389.125 359.375,389.0625 Q359.5156,389 359.6875,389 Q360.0156,389 360.25,389.2656 Q360.5,389.5156 360.5,389.875 Q360.5,390.2188 360.1563,390.625 Q359.6563,391.2188 358.8594,391.5469 Q357.8125,392 356.5313,392 Q355.0313,392 353.8281,391.4063 Q352.8594,390.9375 352.1719,389.9219 Q351.5,388.9063 351.5,387.7031 L351.5,386.6094 Q351.5,385.3594 352.0938,384.2656 Q352.7031,383.1719 353.75,382.5938 Q354.8125,382 356,382 Q356.7188,382 357.3438,382.25 Q357.9688,382.5 358.5,383 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="377" y="391.4102">AuthzRegistry</text><line style="stroke:#A80036;stroke-width:1.5;" x1="280.25" x2="515.25" y1="402.5" y2="402.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="280.25" x2="515.25" y1="410.5" y2="410.5"/><ellipse cx="290.25" cy="421.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="211" x="299.25" y="425.9189">AuthorizationService authorizationService()</text><!--MD5=[54a33dd013dd881697601ca49de6dfbc]
+class AuthorizationService--><rect codeLine="24" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="61.8359" id="AuthorizationService" style="stroke:#A80036;stroke-width:1.5;" width="160" x="551.75" y="370.5"/><ellipse cx="574.85" cy="386.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M576.85,383 Q577.0531,382.5 577.2875,382.25 Q577.5219,382 577.7875,382 Q578.2563,382 578.5531,382.2813 Q578.85,382.5625 578.85,383.2188 L578.85,384.7813 Q578.85,385.4375 578.5688,385.7188 Q578.2875,386 577.85,386 Q577.4594,386 577.2094,385.8281 Q576.9594,385.6563 576.85,385.2031 Q576.8031,384.8906 576.6313,384.7188 Q576.3188,384.3906 575.7563,384.2031 Q575.1938,384 574.6313,384 Q573.9281,384 573.3344,384.2813 Q572.7563,384.5625 572.3031,385.1875 Q571.85,385.8125 571.85,386.6719 L571.85,387.5938 Q571.85,388.625 572.6938,389.3125 Q573.5375,390 575.0375,390 Q575.9281,390 576.5531,389.7969 Q576.9125,389.6875 577.3188,389.3281 Q577.5844,389.125 577.725,389.0625 Q577.8656,389 578.0375,389 Q578.3656,389 578.6,389.2656 Q578.85,389.5156 578.85,389.875 Q578.85,390.2188 578.5063,390.625 Q578.0063,391.2188 577.2094,391.5469 Q576.1625,392 574.8813,392 Q573.3813,392 572.1781,391.4063 Q571.2094,390.9375 570.5219,389.9219 Q569.85,388.9063 569.85,387.7031 L569.85,386.6094 Q569.85,385.3594 570.4438,384.2656 Q571.0531,383.1719 572.1,382.5938 Q573.1625,382 574.35,382 Q575.0688,382 575.6938,382.25 Q576.3188,382.5 576.85,383 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="110" x="590.65" y="391.4102">AuthorizationService</text><line style="stroke:#A80036;stroke-width:1.5;" x1="552.75" x2="710.75" y1="402.5" y2="402.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="552.75" x2="710.75" y1="410.5" y2="410.5"/><ellipse cx="562.75" cy="421.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="134" x="571.75" y="425.9189">UserSession userSession()</text><!--MD5=[c5b08e60048ef1bcd788d24cf324082e]
+class UserSession--><rect codeLine="28" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="61.8359" id="UserSession" style="stroke:#A80036;stroke-width:1.5;" width="184" x="746.75" y="370.5"/><ellipse cx="798" cy="386.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M800,383 Q800.2031,382.5 800.4375,382.25 Q800.6719,382 800.9375,382 Q801.4063,382 801.7031,382.2813 Q802,382.5625 802,383.2188 L802,384.7813 Q802,385.4375 801.7188,385.7188 Q801.4375,386 801,386 Q800.6094,386 800.3594,385.8281 Q800.1094,385.6563 800,385.2031 Q799.9531,384.8906 799.7813,384.7188 Q799.4688,384.3906 798.9063,384.2031 Q798.3438,384 797.7813,384 Q797.0781,384 796.4844,384.2813 Q795.9063,384.5625 795.4531,385.1875 Q795,385.8125 795,386.6719 L795,387.5938 Q795,388.625 795.8438,389.3125 Q796.6875,390 798.1875,390 Q799.0781,390 799.7031,389.7969 Q800.0625,389.6875 800.4688,389.3281 Q800.7344,389.125 800.875,389.0625 Q801.0156,389 801.1875,389 Q801.5156,389 801.75,389.2656 Q802,389.5156 802,389.875 Q802,390.2188 801.6563,390.625 Q801.1563,391.2188 800.3594,391.5469 Q799.3125,392 798.0313,392 Q796.5313,392 795.3281,391.4063 Q794.3594,390.9375 793.6719,389.9219 Q793,388.9063 793,387.7031 L793,386.6094 Q793,385.3594 793.5938,384.2656 Q794.2031,383.1719 795.25,382.5938 Q796.3125,382 797.5,382 Q798.2188,382 798.8438,382.25 Q799.4688,382.5 800,383 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="818.5" y="391.4102">UserSession</text><line style="stroke:#A80036;stroke-width:1.5;" x1="747.75" x2="929.75" y1="402.5" y2="402.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="747.75" x2="929.75" y1="410.5" y2="410.5"/><ellipse cx="757.75" cy="421.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="158" x="766.75" y="425.9189">SystemUser authenticatedUser()</text><!--MD5=[bc064d979c32666ae52f3d7624591b7b]
+class SystemUser--><rect codeLine="33" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="61.8359" id="SystemUser" style="stroke:#A80036;stroke-width:1.5;" width="100" x="965.75" y="370.5"/><ellipse cx="980.75" cy="386.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M982.75,383 Q982.9531,382.5 983.1875,382.25 Q983.4219,382 983.6875,382 Q984.1563,382 984.4531,382.2813 Q984.75,382.5625 984.75,383.2188 L984.75,384.7813 Q984.75,385.4375 984.4688,385.7188 Q984.1875,386 983.75,386 Q983.3594,386 983.1094,385.8281 Q982.8594,385.6563 982.75,385.2031 Q982.7031,384.8906 982.5313,384.7188 Q982.2188,384.3906 981.6563,384.2031 Q981.0938,384 980.5313,384 Q979.8281,384 979.2344,384.2813 Q978.6563,384.5625 978.2031,385.1875 Q977.75,385.8125 977.75,386.6719 L977.75,387.5938 Q977.75,388.625 978.5938,389.3125 Q979.4375,390 980.9375,390 Q981.8281,390 982.4531,389.7969 Q982.8125,389.6875 983.2188,389.3281 Q983.4844,389.125 983.625,389.0625 Q983.7656,389 983.9375,389 Q984.2656,389 984.5,389.2656 Q984.75,389.5156 984.75,389.875 Q984.75,390.2188 984.4063,390.625 Q983.9063,391.2188 983.1094,391.5469 Q982.0625,392 980.7813,392 Q979.2813,392 978.0781,391.4063 Q977.1094,390.9375 976.4219,389.9219 Q975.75,388.9063 975.75,387.7031 L975.75,386.6094 Q975.75,385.3594 976.3438,384.2656 Q976.9531,383.1719 978,382.5938 Q979.0625,382 980.25,382 Q980.9688,382 981.5938,382.25 Q982.2188,382.5 982.75,383 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="994.75" y="391.4102">SystemUser</text><line style="stroke:#A80036;stroke-width:1.5;" x1="966.75" x2="1064.75" y1="402.5" y2="402.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="966.75" x2="1064.75" y1="410.5" y2="410.5"/><ellipse cx="976.75" cy="421.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="63" x="985.75" y="425.9189">String email()</text><!--MD5=[e8c189551b7885b999ad7cefb30fc2a3]
+class PersistenceContext--><rect codeLine="37" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="61.8359" id="PersistenceContext" style="stroke:#A80036;stroke-width:1.5;" width="139" x="105.25" y="370.5"/><ellipse cx="120.25" cy="386.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M122.25,383 Q122.4531,382.5 122.6875,382.25 Q122.9219,382 123.1875,382 Q123.6563,382 123.9531,382.2813 Q124.25,382.5625 124.25,383.2188 L124.25,384.7813 Q124.25,385.4375 123.9688,385.7188 Q123.6875,386 123.25,386 Q122.8594,386 122.6094,385.8281 Q122.3594,385.6563 122.25,385.2031 Q122.2031,384.8906 122.0313,384.7188 Q121.7188,384.3906 121.1563,384.2031 Q120.5938,384 120.0313,384 Q119.3281,384 118.7344,384.2813 Q118.1563,384.5625 117.7031,385.1875 Q117.25,385.8125 117.25,386.6719 L117.25,387.5938 Q117.25,388.625 118.0938,389.3125 Q118.9375,390 120.4375,390 Q121.3281,390 121.9531,389.7969 Q122.3125,389.6875 122.7188,389.3281 Q122.9844,389.125 123.125,389.0625 Q123.2656,389 123.4375,389 Q123.7656,389 124,389.2656 Q124.25,389.5156 124.25,389.875 Q124.25,390.2188 123.9063,390.625 Q123.4063,391.2188 122.6094,391.5469 Q121.5625,392 120.2813,392 Q118.7813,392 117.5781,391.4063 Q116.6094,390.9375 115.9219,389.9219 Q115.25,388.9063 115.25,387.7031 L115.25,386.6094 Q115.25,385.3594 115.8438,384.2656 Q116.4531,383.1719 117.5,382.5938 Q118.5625,382 119.75,382 Q120.4688,382 121.0938,382.25 Q121.7188,382.5 122.25,383 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="107" x="134.25" y="391.4102">PersistenceContext</text><line style="stroke:#A80036;stroke-width:1.5;" x1="106.25" x2="243.25" y1="402.5" y2="402.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="106.25" x2="243.25" y1="410.5" y2="410.5"/><ellipse cx="116.25" cy="421.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="65" x="125.25" y="425.9189">repositories()</text><!--MD5=[48590afff58a68e2fcba47824d6f8a11]
+class RepositoryFactory--><rect codeLine="41" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="61.8359" id="RepositoryFactory" style="stroke:#A80036;stroke-width:1.5;" width="130" x="109.75" y="538"/><ellipse cx="124.75" cy="554" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M126.75,550.5 Q126.9531,550 127.1875,549.75 Q127.4219,549.5 127.6875,549.5 Q128.1563,549.5 128.4531,549.7813 Q128.75,550.0625 128.75,550.7188 L128.75,552.2813 Q128.75,552.9375 128.4688,553.2188 Q128.1875,553.5 127.75,553.5 Q127.3594,553.5 127.1094,553.3281 Q126.8594,553.1563 126.75,552.7031 Q126.7031,552.3906 126.5313,552.2188 Q126.2188,551.8906 125.6563,551.7031 Q125.0938,551.5 124.5313,551.5 Q123.8281,551.5 123.2344,551.7813 Q122.6563,552.0625 122.2031,552.6875 Q121.75,553.3125 121.75,554.1719 L121.75,555.0938 Q121.75,556.125 122.5938,556.8125 Q123.4375,557.5 124.9375,557.5 Q125.8281,557.5 126.4531,557.2969 Q126.8125,557.1875 127.2188,556.8281 Q127.4844,556.625 127.625,556.5625 Q127.7656,556.5 127.9375,556.5 Q128.2656,556.5 128.5,556.7656 Q128.75,557.0156 128.75,557.375 Q128.75,557.7188 128.4063,558.125 Q127.9063,558.7188 127.1094,559.0469 Q126.0625,559.5 124.7813,559.5 Q123.2813,559.5 122.0781,558.9063 Q121.1094,558.4375 120.4219,557.4219 Q119.75,556.4063 119.75,555.2031 L119.75,554.1094 Q119.75,552.8594 120.3438,551.7656 Q120.9531,550.6719 122,550.0938 Q123.0625,549.5 124.25,549.5 Q124.9688,549.5 125.5938,549.75 Q126.2188,550 126.75,550.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="98" x="138.75" y="558.9102">RepositoryFactory</text><line style="stroke:#A80036;stroke-width:1.5;" x1="110.75" x2="238.75" y1="570" y2="570"/><line style="stroke:#A80036;stroke-width:1.5;" x1="110.75" x2="238.75" y1="578" y2="578"/><ellipse cx="120.75" cy="589" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="39" x="129.75" y="593.4189">create()</text><!--MD5=[28183b5fe251cf9d4adbbaa3c2129d6e]
+class Catalogo--><rect codeLine="51" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="48" id="Catalogo" style="stroke:#A80036;stroke-width:1.5;" width="82" x="1242.75" y="377.5"/><ellipse cx="1257.75" cy="393.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1259.75,390 Q1259.9531,389.5 1260.1875,389.25 Q1260.4219,389 1260.6875,389 Q1261.1563,389 1261.4531,389.2813 Q1261.75,389.5625 1261.75,390.2188 L1261.75,391.7813 Q1261.75,392.4375 1261.4688,392.7188 Q1261.1875,393 1260.75,393 Q1260.3594,393 1260.1094,392.8281 Q1259.8594,392.6563 1259.75,392.2031 Q1259.7031,391.8906 1259.5313,391.7188 Q1259.2188,391.3906 1258.6563,391.2031 Q1258.0938,391 1257.5313,391 Q1256.8281,391 1256.2344,391.2813 Q1255.6563,391.5625 1255.2031,392.1875 Q1254.75,392.8125 1254.75,393.6719 L1254.75,394.5938 Q1254.75,395.625 1255.5938,396.3125 Q1256.4375,397 1257.9375,397 Q1258.8281,397 1259.4531,396.7969 Q1259.8125,396.6875 1260.2188,396.3281 Q1260.4844,396.125 1260.625,396.0625 Q1260.7656,396 1260.9375,396 Q1261.2656,396 1261.5,396.2656 Q1261.75,396.5156 1261.75,396.875 Q1261.75,397.2188 1261.4063,397.625 Q1260.9063,398.2188 1260.1094,398.5469 Q1259.0625,399 1257.7813,399 Q1256.2813,399 1255.0781,398.4063 Q1254.1094,397.9375 1253.4219,396.9219 Q1252.75,395.9063 1252.75,394.7031 L1252.75,393.6094 Q1252.75,392.3594 1253.3438,391.2656 Q1253.9531,390.1719 1255,389.5938 Q1256.0625,389 1257.25,389 Q1257.9688,389 1258.5938,389.25 Q1259.2188,389.5 1259.75,390 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="50" x="1271.75" y="398.4102">Catalogo</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1243.75" x2="1323.75" y1="409.5" y2="409.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1243.75" x2="1323.75" y1="417.5" y2="417.5"/><!--MD5=[faf4d635eea35b16677487bac6ad9bf5]
+class Servico--><rect codeLine="53" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="75.6719" id="Servico" style="stroke:#A80036;stroke-width:1.5;" width="187" x="1181.25" y="531"/><ellipse cx="1250.5" cy="547" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1252.5,543.5 Q1252.7031,543 1252.9375,542.75 Q1253.1719,542.5 1253.4375,542.5 Q1253.9063,542.5 1254.2031,542.7813 Q1254.5,543.0625 1254.5,543.7188 L1254.5,545.2813 Q1254.5,545.9375 1254.2188,546.2188 Q1253.9375,546.5 1253.5,546.5 Q1253.1094,546.5 1252.8594,546.3281 Q1252.6094,546.1563 1252.5,545.7031 Q1252.4531,545.3906 1252.2813,545.2188 Q1251.9688,544.8906 1251.4063,544.7031 Q1250.8438,544.5 1250.2813,544.5 Q1249.5781,544.5 1248.9844,544.7813 Q1248.4063,545.0625 1247.9531,545.6875 Q1247.5,546.3125 1247.5,547.1719 L1247.5,548.0938 Q1247.5,549.125 1248.3438,549.8125 Q1249.1875,550.5 1250.6875,550.5 Q1251.5781,550.5 1252.2031,550.2969 Q1252.5625,550.1875 1252.9688,549.8281 Q1253.2344,549.625 1253.375,549.5625 Q1253.5156,549.5 1253.6875,549.5 Q1254.0156,549.5 1254.25,549.7656 Q1254.5,550.0156 1254.5,550.375 Q1254.5,550.7188 1254.1563,551.125 Q1253.6563,551.7188 1252.8594,552.0469 Q1251.8125,552.5 1250.5313,552.5 Q1249.0313,552.5 1247.8281,551.9063 Q1246.8594,551.4375 1246.1719,550.4219 Q1245.5,549.4063 1245.5,548.2031 L1245.5,547.1094 Q1245.5,545.8594 1246.0938,544.7656 Q1246.7031,543.6719 1247.75,543.0938 Q1248.8125,542.5 1250,542.5 Q1250.7188,542.5 1251.3438,542.75 Q1251.9688,543 1252.5,543.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="40" x="1271" y="551.9102">Servico</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1182.25" x2="1367.25" y1="563" y2="563"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1182.25" x2="1367.25" y1="571" y2="571"/><ellipse cx="1192.25" cy="582" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="133" x="1201.25" y="586.4189">NivelCriticidade criticidade()</text><ellipse cx="1192.25" cy="595.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="161" x="1201.25" y="600.2549">Formulario formularioSolicitacao()</text><!--MD5=[a26d7a8585b446db7fc8ab4626d8ca8a]
+class Pedido--><rect codeLine="58" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="103.3438" id="Pedido" style="stroke:#A80036;stroke-width:1.5;" width="265" x="1360.25" y="350"/><ellipse cx="1469" cy="366" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1471,362.5 Q1471.2031,362 1471.4375,361.75 Q1471.6719,361.5 1471.9375,361.5 Q1472.4063,361.5 1472.7031,361.7813 Q1473,362.0625 1473,362.7188 L1473,364.2813 Q1473,364.9375 1472.7188,365.2188 Q1472.4375,365.5 1472,365.5 Q1471.6094,365.5 1471.3594,365.3281 Q1471.1094,365.1563 1471,364.7031 Q1470.9531,364.3906 1470.7813,364.2188 Q1470.4688,363.8906 1469.9063,363.7031 Q1469.3438,363.5 1468.7813,363.5 Q1468.0781,363.5 1467.4844,363.7813 Q1466.9063,364.0625 1466.4531,364.6875 Q1466,365.3125 1466,366.1719 L1466,367.0938 Q1466,368.125 1466.8438,368.8125 Q1467.6875,369.5 1469.1875,369.5 Q1470.0781,369.5 1470.7031,369.2969 Q1471.0625,369.1875 1471.4688,368.8281 Q1471.7344,368.625 1471.875,368.5625 Q1472.0156,368.5 1472.1875,368.5 Q1472.5156,368.5 1472.75,368.7656 Q1473,369.0156 1473,369.375 Q1473,369.7188 1472.6563,370.125 Q1472.1563,370.7188 1471.3594,371.0469 Q1470.3125,371.5 1469.0313,371.5 Q1467.5313,371.5 1466.3281,370.9063 Q1465.3594,370.4375 1464.6719,369.4219 Q1464,368.4063 1464,367.2031 L1464,366.1094 Q1464,364.8594 1464.5938,363.7656 Q1465.2031,362.6719 1466.25,362.0938 Q1467.3125,361.5 1468.5,361.5 Q1469.2188,361.5 1469.8438,361.75 Q1470.4688,362 1471,362.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="39" x="1489.5" y="370.9102">Pedido</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1361.25" x2="1624.25" y1="382" y2="382"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1361.25" x2="1624.25" y1="390" y2="390"/><ellipse cx="1371.25" cy="401" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="127" x="1380.25" y="405.4189">adicionarFicheiro(pathFile)</text><ellipse cx="1371.25" cy="414.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="209" x="1380.25" y="419.2549">guardarDadosFormularioSolicitacao(dados)</text><ellipse cx="1371.25" cy="428.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="239" x="1380.25" y="433.0908">guardarDataHoraSolicitacao(dataHoraSolicitacao)</text><ellipse cx="1371.25" cy="442.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="129" x="1380.25" y="446.9268">definirEstado(SUBMETIDO)</text><!--MD5=[76acc874f09693b2f2def29d0cdf8ced]
+class Formulario--><rect codeLine="65" fill="#FEFECE" filter="url(#f19f3t1a9s1zbc)" height="48" id="Formulario" style="stroke:#A80036;stroke-width:1.5;" width="92" x="1228.75" y="685"/><ellipse cx="1243.75" cy="701" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1245.75,697.5 Q1245.9531,697 1246.1875,696.75 Q1246.4219,696.5 1246.6875,696.5 Q1247.1563,696.5 1247.4531,696.7813 Q1247.75,697.0625 1247.75,697.7188 L1247.75,699.2813 Q1247.75,699.9375 1247.4688,700.2188 Q1247.1875,700.5 1246.75,700.5 Q1246.3594,700.5 1246.1094,700.3281 Q1245.8594,700.1563 1245.75,699.7031 Q1245.7031,699.3906 1245.5313,699.2188 Q1245.2188,698.8906 1244.6563,698.7031 Q1244.0938,698.5 1243.5313,698.5 Q1242.8281,698.5 1242.2344,698.7813 Q1241.6563,699.0625 1241.2031,699.6875 Q1240.75,700.3125 1240.75,701.1719 L1240.75,702.0938 Q1240.75,703.125 1241.5938,703.8125 Q1242.4375,704.5 1243.9375,704.5 Q1244.8281,704.5 1245.4531,704.2969 Q1245.8125,704.1875 1246.2188,703.8281 Q1246.4844,703.625 1246.625,703.5625 Q1246.7656,703.5 1246.9375,703.5 Q1247.2656,703.5 1247.5,703.7656 Q1247.75,704.0156 1247.75,704.375 Q1247.75,704.7188 1247.4063,705.125 Q1246.9063,705.7188 1246.1094,706.0469 Q1245.0625,706.5 1243.7813,706.5 Q1242.2813,706.5 1241.0781,705.9063 Q1240.1094,705.4375 1239.4219,704.4219 Q1238.75,703.4063 1238.75,702.2031 L1238.75,701.1094 Q1238.75,699.8594 1239.3438,698.7656 Q1239.9531,697.6719 1241,697.0938 Q1242.0625,696.5 1243.25,696.5 Q1243.9688,696.5 1244.5938,696.75 Q1245.2188,697 1245.75,697.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="1257.75" y="705.9102">Formulario</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1229.75" x2="1319.75" y1="717" y2="717"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1229.75" x2="1319.75" y1="725" y2="725"/><!--MD5=[531d22cb401960a7c8e7db4a5012de7f]
+link SolicitarServicoUI to SolicitarServicoController--><path codeLine="67" d="M926.75,55.21 C926.75,69.92 926.75,90 926.75,110.57 " fill="none" id="SolicitarServicoUI-to-SolicitarServicoController" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="926.75,115.8,930.75,106.8,926.75,110.8,922.75,106.8,926.75,115.8" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3b12de78bddbecd97d7d94ee5ea460f7]
+link SolicitarServicoController to AuthzRegistry--><path codeLine="69" d="M711.97,283.49 C631.77,313.35 545.24,345.57 483.33,368.63 " fill="none" id="SolicitarServicoController-to-AuthzRegistry" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="478.54,370.41,488.3699,371.0215,483.2263,368.6669,485.5809,363.5234,478.54,370.41" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4ec628221e8305dfb39b52790ac7e755]
+link SolicitarServicoController to AuthorizationService--><path codeLine="70" d="M798.65,289.05 C756.98,316.87 713.21,346.1 680.95,367.64 " fill="none" id="SolicitarServicoController-to-AuthorizationService" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="676.68,370.5,686.3873,368.8359,680.8403,367.7265,681.9497,362.1795,676.68,370.5" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2708268106a57d25af4f75fa0953ba0e]
+link SolicitarServicoController to UserSession--><path codeLine="71" d="M888.54,289.05 C876.46,316.08 863.8,344.43 854.26,365.78 " fill="none" id="SolicitarServicoController-to-UserSession" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="852.15,370.5,859.4567,363.896,854.178,365.9298,852.1443,360.6511,852.15,370.5" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c9631804cfe26b4c0c92764fc2cd3a6e]
+link SolicitarServicoController to SystemUser--><path codeLine="72" d="M965.4,289.05 C977.61,316.08 990.42,344.43 1000.06,365.78 " fill="none" id="SolicitarServicoController-to-SystemUser" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1002.2,370.5,1002.1429,360.6513,1000.1428,365.9428,994.8513,363.9428,1002.2,370.5" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[da05521333995d18840e9ef25cbf5ab0]
+link SolicitarServicoController to PersistenceContext--><path codeLine="73" d="M712.18,233.46 C579.42,256.19 407.16,293.37 261.75,350 C249.39,354.81 236.72,361.21 224.99,367.83 " fill="none" id="SolicitarServicoController-to-PersistenceContext" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="220.38,370.48,230.178,369.4808,224.7195,367.9962,226.204,362.5377,220.38,370.48" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3fa7480e56c28f7b8ddd4e0fb80ae32d]
+link SolicitarServicoController to CatalogoRepository--><path codeLine="74" d="M1041.28,289.03 C1058.15,307.17 1073.09,327.67 1082.75,350 C1100.93,392.01 1104.36,412.65 1082.75,453 C1017.35,575.1 864.83,648.79 773.22,683.62 " fill="none" id="SolicitarServicoController-to-CatalogoRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="768.36,685.46,778.193,686.019,773.0369,683.6919,775.364,678.5358,768.36,685.46" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[15a0a4a73ef9412c7f6c3297112b283d]
+link SolicitarServicoController to Servico--><path codeLine="75" d="M1109.75,289.15 C1122.26,298.34 1134.11,308.29 1144.75,319 C1176.08,350.52 1228.69,463.36 1256.4,525.76 " fill="none" id="SolicitarServicoController-to-Servico" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1258.51,530.53,1258.5157,520.6811,1256.482,525.9598,1251.2033,523.926,1258.51,530.53" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a7aa2de04629f738700b39c40ebad3ba]
+link SolicitarServicoController to Pedido--><path codeLine="76" d="M1141.54,278.26 C1213.16,303.19 1290.99,330.28 1355.13,352.6 " fill="none" id="SolicitarServicoController-to-Pedido" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1360.12,354.34,1352.9312,347.6079,1355.3969,352.6991,1350.3057,355.1648,1360.12,354.34" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[da56cec2052223064b6fc7f1c8ee0bb3]
+link SolicitarServicoController to PedidoRepository--><path codeLine="77" d="M712.06,210.8 C490.58,223.35 166.65,257.45 87.75,350 C6,445.89 50.59,614.4 72.69,680.39 " fill="none" id="SolicitarServicoController-to-PedidoRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="74.36,685.34,75.2378,675.5303,72.7446,680.6081,67.6668,678.115,74.36,685.34" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[289a6364cd060011a45a6735b8dcf961]
+link SolicitarServicoController to Catalogo--><path codeLine="78" d="M1141.5,275.2 C1167.59,287.93 1193.01,302.5 1215.75,319 C1235.96,333.67 1253.83,355.65 1266.17,373.08 " fill="none" id="SolicitarServicoController-to-Catalogo" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1269.19,377.41,1267.3261,367.7391,1266.3313,373.3078,1260.7626,372.313,1269.19,377.41" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[754b775031405e096442b27febffa290]
+link PersistenceContext to RepositoryFactory--><path codeLine="81" d="M174.75,432.86 C174.75,461.08 174.75,503.13 174.75,532.81 " fill="none" id="PersistenceContext-to-RepositoryFactory" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="174.75,537.84,178.75,528.84,174.75,532.84,170.75,528.84,174.75,537.84" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1c7e7a1fe085f3cc90df717ea11f1cec]
+link RepositoryFactory to CatalogoRepository--><path codeLine="83" d="M239.92,587.13 C336.83,612.6 518.6,660.38 622.21,687.62 " fill="none" id="RepositoryFactory-to-CatalogoRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="627.09,688.9,619.4052,682.7401,622.2548,687.6268,617.3681,690.4764,627.09,688.9" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[72c4dac676244702e0f69dd587b16d7e]
+link RepositoryFactory to PedidoRepository--><path codeLine="84" d="M154.56,600.28 C138.43,624.48 116.03,658.08 100.56,681.29 " fill="none" id="RepositoryFactory-to-PedidoRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="97.75,685.49,106.0705,680.2203,100.5235,681.3297,99.4141,675.7827,97.75,685.49" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2c7badfd2dd31d9dc6c031ecbe349308]
+link Catalogo to Servico--><path codeLine="86" d="M1282.5,425.51 C1281.09,451.39 1278.78,493.97 1277.04,525.86 " fill="none" id="Catalogo-to-Servico" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1276.77,530.88,1281.252,522.1101,1277.041,525.8874,1273.2637,521.6764,1276.77,530.88" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="38" x="1280.75" y="497.4951">possui</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1274.3422" y="446.8504">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="1271.6845" y="520.2205">*</text><!--MD5=[4468d3cac2dd2436ca488767a169056c]
+link Servico to Formulario--><path codeLine="87" d="M1274.75,607.34 C1274.75,630.16 1274.75,658.86 1274.75,679.77 " fill="none" id="Servico-to-Formulario" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1274.75,684.92,1278.75,675.92,1274.75,679.92,1270.75,675.92,1274.75,684.92" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="38" x="1275.75" y="651.4951">possui</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1267.1922" y="628.2747">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="1266.8531" y="674.2397">1</text><!--MD5=[7d7ddc10267f00ac0081fdd3bc3dbe5d]
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class SolicitarServicoUI{
+}
+
+class SolicitarServicoController{
++List<Catalogo> getCatalogos()
++List<Catalogo> getCatalogosColaborador(String email,List<Catalogo> listaCatalogos)
++Servico getServicobyCodigoUnico()
++Pedido novoPedido(urgenciaPedido,dataLimite)
++String generateIdPedido()
++boolean adicionarFicheiro(pathFile)
++Formulario getFormularioSolicitacao()
++boolean guardarDadosFormularioSolicitacao(dados)
++registarPedido()
+}
+
+class AuthzRegistry{
++AuthorizationService authorizationService()
+}
+
+
+class AuthorizationService{
++UserSession userSession()
+}
+
+class UserSession{
++SystemUser authenticatedUser()
+}
+
+
+class SystemUser{
++String email()
+}
+
+class PersistenceContext {
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database CatalogoRepository{
+}
+
+database PedidoRepository{
+}
+
+class Catalogo{}
+
+class Servico{
++NivelCriticidade criticidade()
++Formulario formularioSolicitacao()
+}
+
+class Pedido{
++adicionarFicheiro(pathFile)
++guardarDadosFormularioSolicitacao(dados)
++guardarDataHoraSolicitacao(dataHoraSolicitacao)
++definirEstado(SUBMETIDO)
+}
+
+class Formulario
+
+SolicitarServicoUI..>SolicitarServicoController
+
+SolicitarServicoController..>AuthzRegistry
+SolicitarServicoController..>AuthorizationService
+SolicitarServicoController..>UserSession
+SolicitarServicoController..>SystemUser
+SolicitarServicoController..>PersistenceContext
+SolicitarServicoController..>CatalogoRepository
+SolicitarServicoController..>Servico
+SolicitarServicoController..>Pedido
+SolicitarServicoController..>PedidoRepository
+SolicitarServicoController..>Catalogo
+
+
+PersistenceContext..>RepositoryFactory
+
+RepositoryFactory..>CatalogoRepository
+RepositoryFactory..>PedidoRepository
+
+Catalogo "1" - -> "*" Servico : possui
+Servico "1" - -> "1" Formulario: possui
+
+
+@enduml
+
+@startuml
+
+
+class SolicitarServicoUI{
+}
+
+class SolicitarServicoController{
++List<Catalogo> getCatalogos()
++List<Catalogo> getCatalogosColaborador(String email,List<Catalogo> listaCatalogos)
++Servico getServicobyCodigoUnico()
++Pedido novoPedido(urgenciaPedido,dataLimite)
++String generateIdPedido()
++boolean adicionarFicheiro(pathFile)
++Formulario getFormularioSolicitacao()
++boolean guardarDadosFormularioSolicitacao(dados)
++registarPedido()
+}
+
+class AuthzRegistry{
++AuthorizationService authorizationService()
+}
+
+
+class AuthorizationService{
++UserSession userSession()
+}
+
+class UserSession{
++SystemUser authenticatedUser()
+}
+
+
+class SystemUser{
++String email()
+}
+
+class PersistenceContext {
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database CatalogoRepository{
+}
+
+database PedidoRepository{
+}
+
+class Catalogo{}
+
+class Servico{
++NivelCriticidade criticidade()
++Formulario formularioSolicitacao()
+}
+
+class Pedido{
++adicionarFicheiro(pathFile)
++guardarDadosFormularioSolicitacao(dados)
++guardarDataHoraSolicitacao(dataHoraSolicitacao)
++definirEstado(SUBMETIDO)
+}
+
+class Formulario
+
+SolicitarServicoUI..>SolicitarServicoController
+
+SolicitarServicoController..>AuthzRegistry
+SolicitarServicoController..>AuthorizationService
+SolicitarServicoController..>UserSession
+SolicitarServicoController..>SystemUser
+SolicitarServicoController..>PersistenceContext
+SolicitarServicoController..>CatalogoRepository
+SolicitarServicoController..>Servico
+SolicitarServicoController..>Pedido
+SolicitarServicoController..>PedidoRepository
+SolicitarServicoController..>Catalogo
+
+
+PersistenceContext..>RepositoryFactory
+
+RepositoryFactory..>CatalogoRepository
+RepositoryFactory..>PedidoRepository
+
+Catalogo "1" - -> "*" Servico : possui
+Servico "1" - -> "1" Formulario: possui
+
+
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

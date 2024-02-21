@@ -1,0 +1,91 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class SolicitarServicoUI{
+}
+
+class SolicitarServicoController{
++List<Catalogo> getCatalogos()
++List<Catalogo> getCatalogosColaborador(String email,List<Catalogo> listaCatalogos)
++Servico getServicobyCodigoUnico()
++Pedido novoPedido(urgenciaPedido,dataLimite)
++String generateIdPedido()
++boolean adicionarFicheiro(pathFile)
++Formulario getFormularioSolicitacao()
++boolean guardarDadosFormularioSolicitacao(dados)
++registarPedido()
+}
+
+class AuthzRegistry{
++AuthorizationService authorizationService()
+}
+
+
+class AuthorizationService{
++UserSession userSession()
+}
+
+class UserSession{
++SystemUser authenticatedUser()
+}
+
+
+class SystemUser{
++String email()
+}
+
+class PersistenceContext {
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database CatalogoRepository{
+}
+
+database PedidoRepository{
+}
+
+class Catalogo{}
+
+class Servico{
++NivelCriticidade criticidade()
++Formulario formularioSolicitacao()
+}
+
+class Pedido{
++adicionarFicheiro(pathFile)
++guardarDadosFormularioSolicitacao(dados)
++guardarDataHoraSolicitacao(dataHoraSolicitacao)
++definirEstado(SUBMETIDO)
+}
+
+class Formulario
+
+SolicitarServicoUI..>SolicitarServicoController
+
+SolicitarServicoController..>AuthzRegistry
+SolicitarServicoController..>AuthorizationService
+SolicitarServicoController..>UserSession
+SolicitarServicoController..>SystemUser
+SolicitarServicoController..>PersistenceContext
+SolicitarServicoController..>CatalogoRepository
+SolicitarServicoController..>Servico
+SolicitarServicoController..>Pedido
+SolicitarServicoController..>PedidoRepository
+SolicitarServicoController..>Catalogo
+
+
+PersistenceContext..>RepositoryFactory
+
+RepositoryFactory..>CatalogoRepository
+RepositoryFactory..>PedidoRepository
+
+Catalogo "1" --> "*" Servico : possui
+Servico "1" --> "1" Formulario: possui
+
+
+@enduml

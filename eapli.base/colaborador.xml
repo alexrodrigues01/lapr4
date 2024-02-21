@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><company>
+    <colaborador id="1001">
+        <nome>Joao Pedro</nome>
+        <phone>919191919</phone>
+        <email>joao@pedro.pt</email>
+        <salary currency="USD">100000</salary>
+    </colaborador>
+    <colaborador id="2001">
+        <nome>Rui Pedro</nome>
+        <phone>929292929</phone>
+        <email>1191042@isep.ipp.pt</email>
+        <salary currency="INR">200022.0</salary>
+    </colaborador>
+</company>

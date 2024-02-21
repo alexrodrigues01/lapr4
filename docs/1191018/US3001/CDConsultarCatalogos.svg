@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="603px" preserveAspectRatio="none" style="width:865px;height:603px;" version="1.1" viewBox="0 0 865 603" width="865px" zoomAndPan="magnify"><defs><filter height="300%" id="f1e50chu1dz2k9" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[cacd3d18b727cb321ef8926f1d659b83]
+entity CatalogoRepository--><path d="M7.65,560 C7.65,550 80.15,550 80.15,550 C80.15,550 152.65,550 152.65,560 L152.65,586.6094 C152.65,596.6094 80.15,596.6094 80.15,596.6094 C80.15,596.6094 7.65,596.6094 7.65,586.6094 L7.65,560 " fill="#FFFFFF" filter="url(#f1e50chu1dz2k9)" style="stroke:#000000;stroke-width:1.5;"/><path d="M7.65,560 C7.65,570 80.15,570 80.15,570 C80.15,570 152.65,570 152.65,560 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="17.65" y="588.5332">CatalogoRepository</text><!--MD5=[3d741651fa4973c61f9df28e9168cc2e]
+class ConsultarCatalogoUI--><rect codeLine="3" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="48" id="ConsultarCatalogoUI" style="stroke:#A80036;stroke-width:1.5;" width="148" x="323.15" y="7"/><ellipse cx="338.15" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M340.15,19.5 Q340.3531,19 340.5875,18.75 Q340.8219,18.5 341.0875,18.5 Q341.5563,18.5 341.8531,18.7813 Q342.15,19.0625 342.15,19.7188 L342.15,21.2813 Q342.15,21.9375 341.8688,22.2188 Q341.5875,22.5 341.15,22.5 Q340.7594,22.5 340.5094,22.3281 Q340.2594,22.1563 340.15,21.7031 Q340.1031,21.3906 339.9313,21.2188 Q339.6188,20.8906 339.0563,20.7031 Q338.4938,20.5 337.9313,20.5 Q337.2281,20.5 336.6344,20.7813 Q336.0563,21.0625 335.6031,21.6875 Q335.15,22.3125 335.15,23.1719 L335.15,24.0938 Q335.15,25.125 335.9938,25.8125 Q336.8375,26.5 338.3375,26.5 Q339.2281,26.5 339.8531,26.2969 Q340.2125,26.1875 340.6188,25.8281 Q340.8844,25.625 341.025,25.5625 Q341.1656,25.5 341.3375,25.5 Q341.6656,25.5 341.9,25.7656 Q342.15,26.0156 342.15,26.375 Q342.15,26.7188 341.8063,27.125 Q341.3063,27.7188 340.5094,28.0469 Q339.4625,28.5 338.1813,28.5 Q336.6813,28.5 335.4781,27.9063 Q334.5094,27.4375 333.8219,26.4219 Q333.15,25.4063 333.15,24.2031 L333.15,23.1094 Q333.15,21.8594 333.7438,20.7656 Q334.3531,19.6719 335.4,19.0938 Q336.4625,18.5 337.65,18.5 Q338.3688,18.5 338.9938,18.75 Q339.6188,19 340.15,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="116" x="352.15" y="27.9102">ConsultarCatalogoUI</text><line style="stroke:#A80036;stroke-width:1.5;" x1="324.15" x2="470.15" y1="39" y2="39"/><line style="stroke:#A80036;stroke-width:1.5;" x1="324.15" x2="470.15" y1="47" y2="47"/><!--MD5=[68d8548feac8862e3d9a371229b8f614]
+class ConsultarCatalogoController--><rect codeLine="5" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="131.0156" id="ConsultarCatalogoController" style="stroke:#A80036;stroke-width:1.5;" width="248" x="273.15" y="115"/><ellipse cx="314.25" cy="131" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M316.25,127.5 Q316.4531,127 316.6875,126.75 Q316.9219,126.5 317.1875,126.5 Q317.6563,126.5 317.9531,126.7813 Q318.25,127.0625 318.25,127.7188 L318.25,129.2813 Q318.25,129.9375 317.9688,130.2188 Q317.6875,130.5 317.25,130.5 Q316.8594,130.5 316.6094,130.3281 Q316.3594,130.1563 316.25,129.7031 Q316.2031,129.3906 316.0313,129.2188 Q315.7188,128.8906 315.1563,128.7031 Q314.5938,128.5 314.0313,128.5 Q313.3281,128.5 312.7344,128.7813 Q312.1563,129.0625 311.7031,129.6875 Q311.25,130.3125 311.25,131.1719 L311.25,132.0938 Q311.25,133.125 312.0938,133.8125 Q312.9375,134.5 314.4375,134.5 Q315.3281,134.5 315.9531,134.2969 Q316.3125,134.1875 316.7188,133.8281 Q316.9844,133.625 317.125,133.5625 Q317.2656,133.5 317.4375,133.5 Q317.7656,133.5 318,133.7656 Q318.25,134.0156 318.25,134.375 Q318.25,134.7188 317.9063,135.125 Q317.4063,135.7188 316.6094,136.0469 Q315.5625,136.5 314.2813,136.5 Q312.7813,136.5 311.5781,135.9063 Q310.6094,135.4375 309.9219,134.4219 Q309.25,133.4063 309.25,132.2031 L309.25,131.1094 Q309.25,129.8594 309.8438,128.7656 Q310.4531,127.6719 311.5,127.0938 Q312.5625,126.5 313.75,126.5 Q314.4688,126.5 315.0938,126.75 Q315.7188,127 316.25,127.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="158" x="334.05" y="135.9102">ConsultarCatalogoController</text><line style="stroke:#A80036;stroke-width:1.5;" x1="274.15" x2="520.15" y1="147" y2="147"/><line style="stroke:#A80036;stroke-width:1.5;" x1="274.15" x2="520.15" y1="155" y2="155"/><ellipse cx="284.15" cy="166" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="71" x="293.15" y="170.4189">getCatalagos()</text><ellipse cx="284.15" cy="179.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="154" x="293.15" y="184.2549">getCatalogosColaborador(email)</text><ellipse cx="284.15" cy="193.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="166" x="293.15" y="198.0908">getCatalogobyTitulo(tituloCatalogo)</text><ellipse cx="284.15" cy="207.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="222" x="293.15" y="211.9268">getCatalogobyIdentificador(identificadorUnico)</text><ellipse cx="284.15" cy="221.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="156" x="293.15" y="225.7627">getServicobyTitulo(tituloServico)</text><ellipse cx="284.15" cy="235.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="160" x="293.15" y="239.5986">getServicobyKeyword(keyword)</text><!--MD5=[c3eed69adf497205269888f64fa44085]
+class AutzhRegistry--><rect codeLine="14" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="61.8359" id="AutzhRegistry" style="stroke:#A80036;stroke-width:1.5;" width="133" x="74.65" y="306"/><ellipse cx="101.8" cy="322" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M103.8,318.5 Q104.0031,318 104.2375,317.75 Q104.4719,317.5 104.7375,317.5 Q105.2063,317.5 105.5031,317.7813 Q105.8,318.0625 105.8,318.7188 L105.8,320.2813 Q105.8,320.9375 105.5188,321.2188 Q105.2375,321.5 104.8,321.5 Q104.4094,321.5 104.1594,321.3281 Q103.9094,321.1563 103.8,320.7031 Q103.7531,320.3906 103.5813,320.2188 Q103.2688,319.8906 102.7063,319.7031 Q102.1438,319.5 101.5813,319.5 Q100.8781,319.5 100.2844,319.7813 Q99.7063,320.0625 99.2531,320.6875 Q98.8,321.3125 98.8,322.1719 L98.8,323.0938 Q98.8,324.125 99.6438,324.8125 Q100.4875,325.5 101.9875,325.5 Q102.8781,325.5 103.5031,325.2969 Q103.8625,325.1875 104.2688,324.8281 Q104.5344,324.625 104.675,324.5625 Q104.8156,324.5 104.9875,324.5 Q105.3156,324.5 105.55,324.7656 Q105.8,325.0156 105.8,325.375 Q105.8,325.7188 105.4563,326.125 Q104.9563,326.7188 104.1594,327.0469 Q103.1125,327.5 101.8313,327.5 Q100.3313,327.5 99.1281,326.9063 Q98.1594,326.4375 97.4719,325.4219 Q96.8,324.4063 96.8,323.2031 L96.8,322.1094 Q96.8,320.8594 97.3938,319.7656 Q98.0031,318.6719 99.05,318.0938 Q100.1125,317.5 101.3,317.5 Q102.0188,317.5 102.6438,317.75 Q103.2688,318 103.8,318.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="118.5" y="326.9102">AutzhRegistry</text><line style="stroke:#A80036;stroke-width:1.5;" x1="75.65" x2="206.65" y1="338" y2="338"/><line style="stroke:#A80036;stroke-width:1.5;" x1="75.65" x2="206.65" y1="346" y2="346"/><ellipse cx="85.65" cy="357" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="107" x="94.65" y="361.4189">authorizationService()</text><!--MD5=[54a33dd013dd881697601ca49de6dfbc]
+class AuthorizationService--><rect codeLine="18" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="61.8359" id="AuthorizationService" style="stroke:#A80036;stroke-width:1.5;" width="142" x="243.15" y="306"/><ellipse cx="258.15" cy="322" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M260.15,318.5 Q260.3531,318 260.5875,317.75 Q260.8219,317.5 261.0875,317.5 Q261.5563,317.5 261.8531,317.7813 Q262.15,318.0625 262.15,318.7188 L262.15,320.2813 Q262.15,320.9375 261.8688,321.2188 Q261.5875,321.5 261.15,321.5 Q260.7594,321.5 260.5094,321.3281 Q260.2594,321.1563 260.15,320.7031 Q260.1031,320.3906 259.9313,320.2188 Q259.6188,319.8906 259.0563,319.7031 Q258.4938,319.5 257.9313,319.5 Q257.2281,319.5 256.6344,319.7813 Q256.0563,320.0625 255.6031,320.6875 Q255.15,321.3125 255.15,322.1719 L255.15,323.0938 Q255.15,324.125 255.9937,324.8125 Q256.8375,325.5 258.3375,325.5 Q259.2281,325.5 259.8531,325.2969 Q260.2125,325.1875 260.6188,324.8281 Q260.8844,324.625 261.025,324.5625 Q261.1656,324.5 261.3375,324.5 Q261.6656,324.5 261.9,324.7656 Q262.15,325.0156 262.15,325.375 Q262.15,325.7188 261.8063,326.125 Q261.3063,326.7188 260.5094,327.0469 Q259.4625,327.5 258.1813,327.5 Q256.6813,327.5 255.4781,326.9063 Q254.5094,326.4375 253.8219,325.4219 Q253.15,324.4063 253.15,323.2031 L253.15,322.1094 Q253.15,320.8594 253.7437,319.7656 Q254.3531,318.6719 255.4,318.0938 Q256.4625,317.5 257.65,317.5 Q258.3688,317.5 258.9938,317.75 Q259.6188,318 260.15,318.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="110" x="272.15" y="326.9102">AuthorizationService</text><line style="stroke:#A80036;stroke-width:1.5;" x1="244.15" x2="384.15" y1="338" y2="338"/><line style="stroke:#A80036;stroke-width:1.5;" x1="244.15" x2="384.15" y1="346" y2="346"/><ellipse cx="254.15" cy="357" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="46" x="263.15" y="361.4189">session()</text><!--MD5=[c5b08e60048ef1bcd788d24cf324082e]
+class UserSession--><rect codeLine="22" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="61.8359" id="UserSession" style="stroke:#A80036;stroke-width:1.5;" width="122" x="420.15" y="306"/><ellipse cx="442.8" cy="322" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M444.8,318.5 Q445.0031,318 445.2375,317.75 Q445.4719,317.5 445.7375,317.5 Q446.2062,317.5 446.5031,317.7813 Q446.8,318.0625 446.8,318.7188 L446.8,320.2813 Q446.8,320.9375 446.5187,321.2188 Q446.2375,321.5 445.8,321.5 Q445.4094,321.5 445.1594,321.3281 Q444.9094,321.1563 444.8,320.7031 Q444.7531,320.3906 444.5812,320.2188 Q444.2687,319.8906 443.7062,319.7031 Q443.1437,319.5 442.5812,319.5 Q441.8781,319.5 441.2844,319.7813 Q440.7062,320.0625 440.2531,320.6875 Q439.8,321.3125 439.8,322.1719 L439.8,323.0938 Q439.8,324.125 440.6437,324.8125 Q441.4875,325.5 442.9875,325.5 Q443.8781,325.5 444.5031,325.2969 Q444.8625,325.1875 445.2687,324.8281 Q445.5344,324.625 445.675,324.5625 Q445.8156,324.5 445.9875,324.5 Q446.3156,324.5 446.55,324.7656 Q446.8,325.0156 446.8,325.375 Q446.8,325.7188 446.4562,326.125 Q445.9562,326.7188 445.1594,327.0469 Q444.1125,327.5 442.8312,327.5 Q441.3312,327.5 440.1281,326.9063 Q439.1594,326.4375 438.4719,325.4219 Q437.8,324.4063 437.8,323.2031 L437.8,322.1094 Q437.8,320.8594 438.3937,319.7656 Q439.0031,318.6719 440.05,318.0938 Q441.1125,317.5 442.3,317.5 Q443.0187,317.5 443.6437,317.75 Q444.2687,318 444.8,318.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="458.5" y="326.9102">UserSession</text><line style="stroke:#A80036;stroke-width:1.5;" x1="421.15" x2="541.15" y1="338" y2="338"/><line style="stroke:#A80036;stroke-width:1.5;" x1="421.15" x2="541.15" y1="346" y2="346"/><ellipse cx="431.15" cy="357" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="96" x="440.15" y="361.4189">authenticatedUser()</text><!--MD5=[bc064d979c32666ae52f3d7624591b7b]
+class SystemUser--><rect codeLine="26" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="61.8359" id="SystemUser" style="stroke:#A80036;stroke-width:1.5;" width="100" x="577.15" y="306"/><ellipse cx="592.15" cy="322" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M594.15,318.5 Q594.3531,318 594.5875,317.75 Q594.8219,317.5 595.0875,317.5 Q595.5563,317.5 595.8531,317.7813 Q596.15,318.0625 596.15,318.7188 L596.15,320.2813 Q596.15,320.9375 595.8688,321.2188 Q595.5875,321.5 595.15,321.5 Q594.7594,321.5 594.5094,321.3281 Q594.2594,321.1563 594.15,320.7031 Q594.1031,320.3906 593.9313,320.2188 Q593.6188,319.8906 593.0563,319.7031 Q592.4938,319.5 591.9313,319.5 Q591.2281,319.5 590.6344,319.7813 Q590.0563,320.0625 589.6031,320.6875 Q589.15,321.3125 589.15,322.1719 L589.15,323.0938 Q589.15,324.125 589.9938,324.8125 Q590.8375,325.5 592.3375,325.5 Q593.2281,325.5 593.8531,325.2969 Q594.2125,325.1875 594.6188,324.8281 Q594.8844,324.625 595.025,324.5625 Q595.1656,324.5 595.3375,324.5 Q595.6656,324.5 595.9,324.7656 Q596.15,325.0156 596.15,325.375 Q596.15,325.7188 595.8063,326.125 Q595.3063,326.7188 594.5094,327.0469 Q593.4625,327.5 592.1813,327.5 Q590.6813,327.5 589.4781,326.9063 Q588.5094,326.4375 587.8219,325.4219 Q587.15,324.4063 587.15,323.2031 L587.15,322.1094 Q587.15,320.8594 587.7438,319.7656 Q588.3531,318.6719 589.4,318.0938 Q590.4625,317.5 591.65,317.5 Q592.3688,317.5 592.9938,317.75 Q593.6188,318 594.15,318.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="606.15" y="326.9102">SystemUser</text><line style="stroke:#A80036;stroke-width:1.5;" x1="578.15" x2="676.15" y1="338" y2="338"/><line style="stroke:#A80036;stroke-width:1.5;" x1="578.15" x2="676.15" y1="346" y2="346"/><ellipse cx="588.15" cy="357" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="32" x="597.15" y="361.4189">email()</text><!--MD5=[e8c189551b7885b999ad7cefb30fc2a3]
+class PersistenceContext--><rect codeLine="30" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="61.8359" id="PersistenceContext" style="stroke:#A80036;stroke-width:1.5;" width="139" x="712.65" y="306"/><ellipse cx="727.65" cy="322" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M729.65,318.5 Q729.8531,318 730.0875,317.75 Q730.3219,317.5 730.5875,317.5 Q731.0563,317.5 731.3531,317.7813 Q731.65,318.0625 731.65,318.7188 L731.65,320.2813 Q731.65,320.9375 731.3688,321.2188 Q731.0875,321.5 730.65,321.5 Q730.2594,321.5 730.0094,321.3281 Q729.7594,321.1563 729.65,320.7031 Q729.6031,320.3906 729.4313,320.2188 Q729.1188,319.8906 728.5563,319.7031 Q727.9938,319.5 727.4313,319.5 Q726.7281,319.5 726.1344,319.7813 Q725.5563,320.0625 725.1031,320.6875 Q724.65,321.3125 724.65,322.1719 L724.65,323.0938 Q724.65,324.125 725.4938,324.8125 Q726.3375,325.5 727.8375,325.5 Q728.7281,325.5 729.3531,325.2969 Q729.7125,325.1875 730.1188,324.8281 Q730.3844,324.625 730.525,324.5625 Q730.6656,324.5 730.8375,324.5 Q731.1656,324.5 731.4,324.7656 Q731.65,325.0156 731.65,325.375 Q731.65,325.7188 731.3063,326.125 Q730.8063,326.7188 730.0094,327.0469 Q728.9625,327.5 727.6813,327.5 Q726.1813,327.5 724.9781,326.9063 Q724.0094,326.4375 723.3219,325.4219 Q722.65,324.4063 722.65,323.2031 L722.65,322.1094 Q722.65,320.8594 723.2438,319.7656 Q723.8531,318.6719 724.9,318.0938 Q725.9625,317.5 727.15,317.5 Q727.8688,317.5 728.4938,317.75 Q729.1188,318 729.65,318.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="107" x="741.65" y="326.9102">PersistenceContext</text><line style="stroke:#A80036;stroke-width:1.5;" x1="713.65" x2="850.65" y1="338" y2="338"/><line style="stroke:#A80036;stroke-width:1.5;" x1="713.65" x2="850.65" y1="346" y2="346"/><ellipse cx="723.65" cy="357" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="65" x="732.65" y="361.4189">repositories()</text><!--MD5=[48590afff58a68e2fcba47824d6f8a11]
+class RepositoryFactory--><rect codeLine="34" fill="#FEFECE" filter="url(#f1e50chu1dz2k9)" height="61.8359" id="RepositoryFactory" style="stroke:#A80036;stroke-width:1.5;" width="130" x="395.15" y="428"/><ellipse cx="410.15" cy="444" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M412.15,440.5 Q412.3531,440 412.5875,439.75 Q412.8219,439.5 413.0875,439.5 Q413.5563,439.5 413.8531,439.7813 Q414.15,440.0625 414.15,440.7188 L414.15,442.2813 Q414.15,442.9375 413.8688,443.2188 Q413.5875,443.5 413.15,443.5 Q412.7594,443.5 412.5094,443.3281 Q412.2594,443.1563 412.15,442.7031 Q412.1031,442.3906 411.9313,442.2188 Q411.6188,441.8906 411.0563,441.7031 Q410.4938,441.5 409.9313,441.5 Q409.2281,441.5 408.6344,441.7813 Q408.0563,442.0625 407.6031,442.6875 Q407.15,443.3125 407.15,444.1719 L407.15,445.0938 Q407.15,446.125 407.9938,446.8125 Q408.8375,447.5 410.3375,447.5 Q411.2281,447.5 411.8531,447.2969 Q412.2125,447.1875 412.6188,446.8281 Q412.8844,446.625 413.025,446.5625 Q413.1656,446.5 413.3375,446.5 Q413.6656,446.5 413.9,446.7656 Q414.15,447.0156 414.15,447.375 Q414.15,447.7188 413.8063,448.125 Q413.3063,448.7188 412.5094,449.0469 Q411.4625,449.5 410.1813,449.5 Q408.6813,449.5 407.4781,448.9063 Q406.5094,448.4375 405.8219,447.4219 Q405.15,446.4063 405.15,445.2031 L405.15,444.1094 Q405.15,442.8594 405.7438,441.7656 Q406.3531,440.6719 407.4,440.0938 Q408.4625,439.5 409.65,439.5 Q410.3688,439.5 410.9938,439.75 Q411.6188,440 412.15,440.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="98" x="424.15" y="448.9102">RepositoryFactory</text><line style="stroke:#A80036;stroke-width:1.5;" x1="396.15" x2="524.15" y1="460" y2="460"/><line style="stroke:#A80036;stroke-width:1.5;" x1="396.15" x2="524.15" y1="468" y2="468"/><ellipse cx="406.15" cy="479" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="39" x="415.15" y="483.4189">create()</text><!--MD5=[9e656faa7a28fe2f2c820c94913a8203]
+link ConsultarCatalogoUI to ConsultarCatalogoController--><path codeLine="42" d="M397.15,55.05 C397.15,69.91 397.15,90.1 397.15,109.89 " fill="none" id="ConsultarCatalogoUI-to-ConsultarCatalogoController" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="397.15,114.91,401.15,105.91,397.15,109.91,393.15,105.91,397.15,114.91" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[97b8c4c817434d945df1ecde26b406c7]
+link ConsultarCatalogoController to AutzhRegistry--><path codeLine="44" d="M290.07,246.13 C257.42,265.83 222.91,286.65 195.34,303.29 " fill="none" id="ConsultarCatalogoController-to-AutzhRegistry" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="190.98,305.93,200.7536,304.7151,195.2637,303.3512,196.6276,297.8612,190.98,305.93" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c657423fd36a0e6478e5ff325f332a82]
+link ConsultarCatalogoController to AuthorizationService--><path codeLine="45" d="M362.43,246.13 C352.28,265.02 341.57,284.95 332.83,301.23 " fill="none" id="ConsultarCatalogoController-to-AuthorizationService" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="330.42,305.72,338.2111,299.6952,332.7922,301.3186,331.1688,295.8996,330.42,305.72" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a77c5b6949dd460083591a82d242fe55]
+link ConsultarCatalogoController to UserSession--><path codeLine="46" d="M432.29,246.13 C442.56,265.02 453.4,284.95 462.25,301.23 " fill="none" id="ConsultarCatalogoController-to-UserSession" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="464.69,305.72,463.8919,295.9035,462.2957,301.3305,456.8687,299.7343,464.69,305.72" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bebbb79618b6f5ab0f1306762c72742e]
+link ConsultarCatalogoController to SystemUser--><path codeLine="47" d="M493.36,246.13 C522.57,265.75 553.44,286.48 578.15,303.09 " fill="none" id="ConsultarCatalogoController-to-SystemUser" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="582.38,305.93,577.1434,297.5887,578.2308,303.14,572.6794,304.2274,582.38,305.93" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a9f3bd6903c50faa81824f7bfd44293f]
+link ConsultarCatalogoController to PersistenceContext--><path codeLine="48" d="M521.35,231.34 C582.79,256 654.89,284.93 707.69,306.12 " fill="none" id="ConsultarCatalogoController-to-PersistenceContext" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="712.42,308.02,705.568,300.9454,707.7826,306.1508,702.5772,308.3653,712.42,308.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[49bb7413f3f43733f0285f93de1fee41]
+link ConsultarCatalogoController to CatalogoRepository--><path codeLine="49" d="M272.81,192.18 C196.97,205.85 105.58,236.7 57.15,306 C6,379.2 44.67,492.8 67.08,544.8 " fill="none" id="ConsultarCatalogoController-to-CatalogoRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="69.2,549.64,69.2685,539.7914,67.2012,545.0569,61.9356,542.9895,69.2,549.64" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[754b775031405e096442b27febffa290]
+link PersistenceContext to RepositoryFactory--><path codeLine="52" d="M712.28,364.04 C658.33,384.15 584.01,411.84 530.05,431.95 " fill="none" id="PersistenceContext-to-RepositoryFactory" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="525.22,433.75,535.0499,434.3615,529.9063,432.0069,532.2609,426.8634,525.22,433.75" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1c7e7a1fe085f3cc90df717ea11f1cec]
+link RepositoryFactory to CatalogoRepository--><path codeLine="55" d="M394.83,479.34 C329.03,498.82 227.52,528.87 157.69,549.55 " fill="none" id="RepositoryFactory-to-CatalogoRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="152.71,551.02,162.4736,552.3132,157.5061,549.6069,160.2125,544.6394,152.71,551.02" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0718b8d7533274945c05f6ec535187e0]
+@startuml
+'https://plantuml.com/class-diagram
+
+class ConsultarCatalogoUI
+
+class ConsultarCatalogoController{
++getCatalagos()
++getCatalogosColaborador(email)
++getCatalogobyTitulo(tituloCatalogo)
++getCatalogobyIdentificador(identificadorUnico)
++getServicobyTitulo(tituloServico)
++getServicobyKeyword(keyword)
+}
+
+class AutzhRegistry{
++authorizationService()
+}
+
+class AuthorizationService{
++session()
+}
+
+class UserSession{
++authenticatedUser()
+}
+
+class SystemUser{
++email()
+}
+
+class PersistenceContext{
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database CatalogoRepository{
+}
+
+
+ConsultarCatalogoUI..>ConsultarCatalogoController
+
+ConsultarCatalogoController..>AutzhRegistry
+ConsultarCatalogoController..>AuthorizationService
+ConsultarCatalogoController..>UserSession
+ConsultarCatalogoController..>SystemUser
+ConsultarCatalogoController..>PersistenceContext
+ConsultarCatalogoController..>CatalogoRepository
+
+
+PersistenceContext..>RepositoryFactory
+
+
+RepositoryFactory..>CatalogoRepository
+
+@enduml
+
+@startuml
+
+class ConsultarCatalogoUI
+
+class ConsultarCatalogoController{
++getCatalagos()
++getCatalogosColaborador(email)
++getCatalogobyTitulo(tituloCatalogo)
++getCatalogobyIdentificador(identificadorUnico)
++getServicobyTitulo(tituloServico)
++getServicobyKeyword(keyword)
+}
+
+class AutzhRegistry{
++authorizationService()
+}
+
+class AuthorizationService{
++session()
+}
+
+class UserSession{
++authenticatedUser()
+}
+
+class SystemUser{
++email()
+}
+
+class PersistenceContext{
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database CatalogoRepository{
+}
+
+
+ConsultarCatalogoUI..>ConsultarCatalogoController
+
+ConsultarCatalogoController..>AutzhRegistry
+ConsultarCatalogoController..>AuthorizationService
+ConsultarCatalogoController..>UserSession
+ConsultarCatalogoController..>SystemUser
+ConsultarCatalogoController..>PersistenceContext
+ConsultarCatalogoController..>CatalogoRepository
+
+
+PersistenceContext..>RepositoryFactory
+
+
+RepositoryFactory..>CatalogoRepository
+
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

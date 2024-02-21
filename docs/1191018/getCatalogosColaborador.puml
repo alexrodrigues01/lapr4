@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor USER
+participant "<<presentation>>\nUI" as UI
+participant "<<application>>\nController" as CONTROLLER
+participant "AuthzRegistry" as AUTHZ
+participant "authz:\n AuthorizationService" AS AUTHZSERVICE
+participant "userSession\n:UserSession" as USERSESSION
+participant "systemUser:\n SystemUser" AS SYSTEMUSER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database "<<repository>>\nCatalogoRepository" as REPO1
+participant "<<domain>>\nCatalogo" as CAT
+participant "<<domain>>\nServico"
+collections "<<java interface>>\n listaCatalogos"
+collections "<<java interface>>\n listaCatalogosColaborador"
+
+activate USER
+    USER->UI: inicia o processo
+    activate UI
+        UI->CONTROLLER: listaCatalogosColaborador=getCatalogos()
+        activate CONTROLLER
+            CONTROLLER->AUTHZ : authz=authorizationService()
+            activate AUTHZ
+            deactivate AUTHZ
+            CONTROLLER->AUTHZSERVICE :userSession=session()
+            activate AUTHZSERVICE
+            deactivate AUTHZSERVICE
+            CONTROLLER->USERSESSION: systemUser=authenticatedUser()
+            activate USERSESSION
+            deactivate USERSESSION
+            CONTROLLER-> SYSTEMUSER: email= email()
+            activate SYSTEMUSER
+            deactivate SYSTEMUSER
+              CONTROLLER->PERS: repositories()
+                        activate PERS
+                            PERS->FACT: create()
+                            activate FACT
+                                FACT->REPO1: create()
+                                activate REPO1
+                                deactivate REPO1
+                            deactivate FACT
+                            PERS-->CONTROLLER: CatalogoRepository
+                        deactivate PERS
+                        CONTROLLER->REPO1: listaCatalogos=getCatalogos()
+                        activate REPO1
+                        deactivate REPO1
+            CONTROLLER->CONTROLLER: listaCatalogosColaborador= getCatalogosColaborador(email,listaCatalogos)
+        deactivate CONTROLLER
+        UI--> USER: apresenta a lista de catalogos e \n permite a pesquisa de servico\ catalogo
+
+    deactivate UI
+    deactivate USER
+
+    @enduml

@@ -1,0 +1,56 @@
+@startuml
+
+class EspecificarColaboradorUI{
+
+}
+
+class EspecificarColaboradorController{
+    novoColaborador(email,telemovel,email,dataNascimento,nomeComum,localResidencia,funcao)
+    registarColaborador()
+    novoColaborador()
+    getColaboradores()
+    getColaboradorById()
+    getFuncoes()
+}
+
+class Colaborador{
+    String localResidencia
+    String telemovel
+    String email
+    Date dataNascimento
+    String nomeComum
+    String nomeCompleto
+    String funcao
+}
+
+class PersistenceContext{
+    repositories()
+}
+class RepositoryFactory{
+newTransactionalContext()
+    create()
+}
+database ColaboradorRepository{
+}
+database UserRepository{
+}
+
+class Colaborador{
+    create(email,telemovel,email,dataNascimento,nomeComum,localResidencia,funcao,responsavel)
+}
+
+EspecificarColaboradorUI ..> EspecificarColaboradorController
+
+EspecificarColaboradorController ..> Colaborador
+EspecificarColaboradorController ..>PersistenceContext
+EspecificarColaboradorController ..>ColaboradorRepository
+EspecificarColaboradorController ..>UserRepository
+
+Colaborador->Colaborador : tem como responsável
+
+PersistenceContext ..>RepositoryFactory
+
+RepositoryFactory ..>ColaboradorRepository
+RepositoryFactory ..>UserRepository
+
+@enduml

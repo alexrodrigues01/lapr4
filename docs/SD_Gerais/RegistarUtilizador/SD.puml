@@ -1,0 +1,40 @@
+@startuml
+autonumber
+
+actor "Responsável Recursos\nHumanos" as ADMIN
+participant "<<application>>\n:AddUserController" as CONTROLLER
+participant "<<builder>>\nUserBuilder" as B
+participant "<<persistence>>\nPersistenceContext" as PERS
+participant "<<factory>>\nfactory:RepositoryFactory" as FAC
+database "<<repository>>\n:UserRepository" as DB
+participant "<<domain>>\n:user:User" AS C
+
+activate ADMIN
+
+
+activate CONTROLLER
+CONTROLLER->B : create
+CONTROLLER->B : setUsername(username)
+CONTROLLER->B: createUser()
+activate B
+B->C:create(username,password,nomeCompleto,email,roles)
+C-->B:user
+B-->CONTROLLER: user
+deactivate B
+
+CONTROLLER -> PERS: repositories()
+activate PERS
+PERS ->FAC: create()
+PERS-->CONTROLLER:factory
+deactivate PERS
+CONTROLLER->FAC:users()
+activate FAC
+FAC->DB:create
+FAC-->CONTROLLER:userRepository
+deactivate FAC
+CONTROLLER->DB:save(user)
+
+deactivate CONTROLLER
+deactivate ADMIN
+
+@enduml

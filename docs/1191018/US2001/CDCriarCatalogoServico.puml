@@ -1,0 +1,95 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+
+
+class CriarCatalogoUI{
+}
+
+class CriarCatalogoController{
++create()
++Catalogo novoCatalogo(iconeCatalogo,descricaoCompleta,descricaoSimples,titulo,identificadorUnico,criterioAcesso,sla)
++registarCatalogo(Catalogo catalogo)
++getListaServicos()
++adicionarServico()
++adicionarObjetivo(tempoMaximoAprovacao,tempoMedioAprovacao,tempoMaximoAceitacao,tempoMedioAceitacao)
+}
+
+class PersistenceContext{
++repositories()
+}
+
+class RepositoryFactory{
++create()
++newTransactionalContext()
++create(TransactionalContext ctx)
+}
+
+database CatalogoRepository{
+}
+
+database ServicoRepository{
+}
+
+database ObjetivoRepository{
+}
+
+database ColaboradorRepository{
+}
+
+database EquipaRepository{
+}
+
+class Catalogo{
++create (iconeCatalogo,descricaoCompleta,descricaoSimples,titulo,identificadorUnico,criterioAcesso,sla)
++adicionarServico(servico)
++adicionarObjetivo(objetivo)
+}
+
+
+class Objetivo {
++create(tempoMaximoAprovacao,tempoMedioAprovacao,tempoMaximoAceitacao,tempoMedioAceitacao )
+}
+
+class Servico {
+
+}
+
+class Colaborador{
+
+}
+
+class TransactionalContext{
++beginTransaction()
++commit()
+}
+
+CriarCatalogoUI..> CriarCatalogoController
+
+CriarCatalogoController..>PersistenceContext
+CriarCatalogoController..>Catalogo
+CriarCatalogoController..>Objetivo
+CriarCatalogoController..>TransactionalContext
+CriarCatalogoController..>CatalogoRepository
+CriarCatalogoController..>ServicoRepository
+CriarCatalogoController..>ObjetivoRepository
+CriarCatalogoController..>ColaboradorRepository
+CriarCatalogoController..>EquipaRepository
+
+PersistenceContext..>RepositoryFactory
+
+RepositoryFactory..>CatalogoRepository
+RepositoryFactory..>ServicoRepository
+RepositoryFactory..>ObjetivoRepository
+RepositoryFactory..>ColaboradorRepository
+RepositoryFactory..>EquipaRepository
+
+Catalogo "1" --> "*" Objetivo: possui
+Catalogo "1" --> "*" Servico : possui
+Catalogo "1" --> "1" Colaborador : tem como responsável
+Equipa "*" --> "1" Catalogo : tem acesso a
+
+@enduml
+
+@enduml

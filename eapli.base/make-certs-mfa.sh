@@ -1,0 +1,24 @@
+#!/bin/bash
+STOREPASS="pagini"
+for ENT in servidor_mfa cliente_portal cliente_srh; do
+ rm -f ${ENT}.jks ${ENT}.pem
+ echo -e "${ENT}\nDEI\nISEP\nPORTO\nPORTO\nPT\nyes" | keytool -genkey -v -alias ${ENT} -keyalg RSA -keysize 2048 \
+	-validity 365 -keystore ${ENT}.jks -storepass ${STOREPASS}
+ keytool -exportcert -alias ${ENT} -keystore ${ENT}.jks -storepass ${STOREPASS} -rfc -file ${ENT}.pem
+done
+####
+#echo "Creating trust relations"
+### IMPORTING TRUSTED CERTIFICATES
+### (The server trusts all clients except for client4_J)
+### (Every client trusts servidor_mfa)
+for ENT in cliente_portal cliente_srh; do
+ echo "yes"|keytool -import -alias ${ENT} -keystore servidor_mfa.jks -file ${ENT}.pem -storepass ${STOREPASS}
+ echo "yes"|keytool -import -alias servidor_mfa -keystore ${ENT}.jks -file servidor_mfa.pem -storepass ${STOREPASS}
+done
+### echo "yes"|keytool -import -alias servidor_mfa -keystore client4_J.jks -file servidor_mfa.pem -storepass ${STOREPASS}
+echo "############################################################################"
+keytool -list -keystore servidor_mfa.jks -storepass ${STOREPASS}
+echo "############################################################################"
+### echo "WARNING: For testing, client4_J is not added to the list of authorized clients"
+### echo "############################################################################"
+#######

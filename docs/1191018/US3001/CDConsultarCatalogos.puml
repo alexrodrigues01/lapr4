@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ConsultarCatalogoUI
+
+class ConsultarCatalogoController{
++getCatalagos()
++getCatalogosColaborador(email)
++getCatalogobyTitulo(tituloCatalogo)
++getCatalogobyIdentificador(identificadorUnico)
++getServicobyTitulo(tituloServico)
++getServicobyKeyword(keyword)
+}
+
+class AutzhRegistry{
++authorizationService()
+}
+
+class AuthorizationService{
++session()
+}
+
+class UserSession{
++authenticatedUser()
+}
+
+class SystemUser{
++email()
+}
+
+class PersistenceContext{
++repositories()
+}
+
+class RepositoryFactory{
++create()
+}
+
+database CatalogoRepository{
+}
+
+
+ConsultarCatalogoUI..>ConsultarCatalogoController
+
+ConsultarCatalogoController..>AutzhRegistry
+ConsultarCatalogoController..>AuthorizationService
+ConsultarCatalogoController..>UserSession
+ConsultarCatalogoController..>SystemUser
+ConsultarCatalogoController..>PersistenceContext
+ConsultarCatalogoController..>CatalogoRepository
+
+
+PersistenceContext..>RepositoryFactory
+
+
+RepositoryFactory..>CatalogoRepository
+
+@enduml

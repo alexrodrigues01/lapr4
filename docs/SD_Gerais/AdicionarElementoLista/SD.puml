@@ -1,0 +1,79 @@
+@startuml
+autonumber
+
+actor "ACTOR" as ACT
+participant "<<presentation>>\nObjectUI" as UI
+participant "<<application>>\nObjectController" as CONTROLLER
+participant "<<persistance>>\nPersistenceContext" as PERS
+participant "<<factory>>\nRepositoryFactory" as FACT
+database  "<<repository>>\nElementRepository" as REPO1
+database  "<<repository>>\nObjectRepository" as REPO2
+collections "<<java interface>> lista"
+participant "<<domain>> Object"
+
+
+
+ACT -> UI : Inicia a seleção de um elemento da lista
+activate ACT
+
+activate UI
+    UI->CONTROLLER: lista= getLista()
+    activate CONTROLLER
+        CONTROLLER->PERS: repositories()
+        activate PERS
+            PERS->FACT: create()
+            activate FACT
+                FACT-> REPO1: create()
+                activate REPO1
+                deactivate REPO1
+            deactivate  FACT
+            PERS--> CONTROLLER: ElementRepository
+        deactivate PERS
+        CONTROLLER->REPO1: lista=getLista()
+        activate REPO1
+        deactivate REPO1
+    deactivate CONTROLLER
+    UI--> ACT: apresenta a lista e solicita que selecione um/uns
+deactivate UI
+
+ACT -> UI : seleciona o(s) elemento(s) que pretende adicionar
+activate UI
+
+    UI--> ACT: mostra a informação e solicita confirmação
+
+deactivate UI
+
+ACT -> UI : confirma
+activate UI
+    UI-> CONTROLLER: adicionarElemento(idElemento)
+    activate CONTROLLER
+
+
+
+        CONTROLLER->PERS: repositories()
+                activate PERS
+                    PERS->FACT: create()
+                    activate FACT
+                        FACT-> REPO2: create()
+                        activate REPO2
+                        deactivate REPO2
+                    deactivate  FACT
+                    PERS--> CONTROLLER: ObjectRepository
+                deactivate PERS
+
+
+        CONTROLLER -> REPO2: adicionarElemento(idElemento)
+                    activate REPO2
+                    deactivate REPO2
+    deactivate CONTROLLER
+    UI--> ACT: informa do sucesso da operação
+deactivate UI
+
+
+
+
+
+
+deactivate ACT
+
+@enduml
